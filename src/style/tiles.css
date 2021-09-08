@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+.tiles {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  margin: 2em 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tiles__link {
+  text-decoration: none;
+}
+
+.tiles__tile {
+  padding: 1em;
+  color: white;
+  text-align: center;
+}
+
+.tiles__tile--personal {
+  background: #3dc0fd;
+}
+
+.tiles__tile--home {
+  background: #31cf1c;
+}
+
+.tiles__tile--auto {
+  background: #FCA53D;
+}
+
+.tiles__tile--baby {
+  background: #FC566C;
+}
+
+.tiles__tile--csok {
+  background: #FC7749;
+}
+
+.tiles__icon {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 4em;
+  line-height: 1;
+  text-align: center;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: 'liga';
+          font-feature-settings: 'liga';
+}
+
+.tiles__icon--personal::before {
+  content: '\e926';
+}
+
+.tiles__icon--home::before {
+  content: '\e88a';
+}
+
+.tiles__icon--auto::before {
+  content: '\e531';
+}
+
+.tiles__icon--baby::before {
+  content: '\eb41';
+}
+
+.tiles__icon--csok::before {
+  content: '\e73a';
+}
+
+.tiles__text {
+  margin: 0.5em 0;
+  font-family: 'Barlow', sans-serif;
+  font-size: 1.1em;
+}
+/*# sourceMappingURL=tiles.css.map */

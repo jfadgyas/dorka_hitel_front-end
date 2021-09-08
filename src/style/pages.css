@@ -1,0 +1,56 @@
+.page {
+  margin-top: 2em;
+}
+
+.page__container {
+  padding: 0.1em 1em;
+  font-family: 'Barlow', sans-serif;
+  font-size: 1em;
+}
+
+.page__container:nth-child(odd) {
+  border-left: 0.5em solid var(--calcBackground);
+}
+
+.page__container:nth-child(even) {
+  border-right: 0.5em solid var(--calcBackground);
+}
+
+.page__container:first-child {
+  background: var(--calcBackground);
+  color: white;
+}
+
+.page__container:first-child .page__icon {
+  color: white;
+}
+
+.page__container .page__icon {
+  color: var(--calcBackground);
+}
+
+.page__header {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.page__icon {
+  display: inline;
+  height: 100%;
+  margin-left: 0.2em;
+  float: right;
+  font-family: 'Material Icons Outlined';
+  font-style: normal;
+  font-size: 3.5em;
+}
+
+.page__desc, .page__list {
+  line-height: 1.4em;
+  text-align: justify;
+  opacity: 0.8;
+}
+
+.page__list {
+  padding-left: 1em;
+}
+/*# sourceMappingURL=pages.css.map */

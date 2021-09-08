@@ -1,0 +1,60 @@
+
+
+.page{
+    margin-top: 2em;
+    // padding: 1em;
+    &__container{
+        // display: flex;
+        padding: 0.1em 1em;
+        font-family: 'Barlow', sans-serif;
+        font-size: 1em;
+        &:nth-child(odd){
+            border-left: 0.5em solid var(--calcBackground);
+            // background: var(--calcBackground);
+            // color: white;
+        }
+        &:nth-child(even){
+            border-right: 0.5em solid var(--calcBackground);
+        }
+        &:first-child{
+            background: var(--calcBackground);
+            color: white;
+            & .page__icon{
+                color: white;
+            }
+        }
+        & .page__icon{
+            color: var(--calcBackground);
+        }
+    }
+    &__header{
+        font-style: italic;
+        opacity: 0.8;
+        // color: var(--calcBackground);
+    }
+    &__icon{
+        display: inline;
+        height: 100%;
+        margin-left: 0.2em;
+        float: right;
+        font-family: 'Material Icons Outlined';
+        font-style: normal;
+        font-size: 3.5em;
+    }
+    &__desc,
+    &__list{
+        // color: var(--calcBackground);
+        line-height: 1.4em;
+        text-align: justify;
+        opacity: 0.8;
+    }
+    // &__list-item{
+    // }
+    &__list{
+        padding-left: 1em;
+    }
+}
+// .z{
+//     display: flex;
+//     flex-direction: column;
+// }
