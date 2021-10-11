@@ -1,0 +1,78 @@
+.news__list {
+  padding: 0;
+  list-style: none;
+}
+
+.news__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 90%;
+  margin: 1em auto;
+  background: white;
+  border-radius: 1em;
+  -webkit-box-shadow: 0px 5px 7px #cfc9c9;
+          box-shadow: 0px 5px 7px #cfc9c9;
+  font-family: 'Barlow', sans-serif;
+  font-style: italic;
+}
+
+.news__label {
+  margin-bottom: 0;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #474646;
+}
+
+.news__date {
+  font-size: 0.7em;
+  color: #FC7749;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.news__desc, .news__label, .news__date {
+  padding: 0 0.5em;
+}
+
+.news__icon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 1rem;
+  padding: 0.2em;
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1;
+  text-align: center;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: 'liga';
+          font-feature-settings: 'liga';
+}
+
+.news__icon--clock::before {
+  content: '\e8b5';
+}
+/*# sourceMappingURL=news.css.map */

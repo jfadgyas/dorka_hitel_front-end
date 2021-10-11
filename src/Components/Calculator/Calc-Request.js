@@ -3,10 +3,6 @@ import React from 'react'
 import '../../style/calculator.css'
 
 const CalcRequest = (props) => {
-    // Pass keystrokes to parent
-    const handleChange = e => {
-        props.handleChange(e)
-    }
 
     return (
         <div className='calc__req-wrapper'>
@@ -18,7 +14,8 @@ const CalcRequest = (props) => {
                 <div className='calc__req__form__groups'>
                     <label
                         className='calc__req__form__labels'
-                        htmlFor='loanType'>Hiteltípus</label>
+                        htmlFor='loanType'>Hiteltípus
+                    </label>
                     <div
                         id='loanTypeGroup'
                         className='calc__req__form__input-wrapper'>
@@ -29,7 +26,7 @@ const CalcRequest = (props) => {
                             name='loanType'
                             required={true}
                             value={props.loanRequest.loanType}
-                            onChange={handleChange}
+                            onChange={props.handleChange}
                             onBlur={props.handleSubmit}>
                             <option value=''>Választott hitel:</option>
                             <option value='personal'>Személyi kölcsön</option>
@@ -44,38 +41,42 @@ const CalcRequest = (props) => {
                         className='calc__req__form__error'>
                     </small>
                 </div>
-                <div className='calc__req__form__groups'>
-                    <label
-                        className='calc__req__form__labels'
-                        htmlFor='salary'>Havi nettó jövedelem</label>
-                    <div
-                        id='salaryGroup'
-                        className='calc__req__form__input-wrapper'>
-                        <span className='calc__req__form__icons calc__req__form__icons--cash'></span>
-                        <input 
-                            className='calc__req__form__inputs'
-                            id='salary'
-                            name='salary'
-                            type='number'
-                            placeholder='fizetes'
-                            min='0'
-                            max='999999999'
-                            required={true}
-                            value={props.loanRequest.salary}
-                            onChange={handleChange}
-                            onBlur={props.handleSubmit}
-                        />
-                        <span className='calc__req__form__icons calc__req__form__icons--text'>Ft</span>
+                {props.loanRequest.loanType !== 'baby' && 
+                    <div className='calc__req__form__groups'>
+                        <label
+                            className='calc__req__form__labels'
+                            htmlFor='salary'>Havi nettó jövedelem
+                        </label>
+                        <div
+                            id='salaryGroup'
+                            className='calc__req__form__input-wrapper'>
+                            <span className='calc__req__form__icons calc__req__form__icons--cash'></span>
+                            <input 
+                                className='calc__req__form__inputs'
+                                id='salary'
+                                name='salary'
+                                type='number'
+                                placeholder='fizetes'
+                                min='0'
+                                max='999999999'
+                                required={true}
+                                value={props.loanRequest.salary}
+                                onChange={props.handleChange}
+                                onBlur={props.handleSubmit}
+                            />
+                            <span className='calc__req__form__icons calc__req__form__icons--text'>Ft</span>
+                        </div>
+                        <small
+                            id='salaryError'
+                            className='calc__req__form__error'>                        
+                        </small>
                     </div>
-                    <small
-                        id='salaryError'
-                        className='calc__req__form__error'>                        
-                    </small>
-                </div>
+                }
                 <div className='calc__req__form__groups'>
                     <label
                         className='calc__req__form__labels'
-                        htmlFor='loan'>Hitelösszeg</label>
+                        htmlFor='loan'>Hitelösszeg
+                    </label>
                     <div
                         id='loanGroup'
                         className='calc__req__form__input-wrapper'>
@@ -90,7 +91,7 @@ const CalcRequest = (props) => {
                             max={props.loanConditions ? props.loanConditions.maxLoan : '999999999'}
                             required={true}
                             value={props.loanRequest.loan}
-                            onChange={handleChange}
+                            onChange={props.handleChange}
                             onBlur={props.handleSubmit}
                         />
                         <span className='calc__req__form__icons calc__req__form__icons--text'>Ft</span>
@@ -103,7 +104,8 @@ const CalcRequest = (props) => {
                 <div className='calc__req__form__groups'>
                     <label
                         className='calc__req__form__labels'
-                        htmlFor='year'>Futamidő</label>
+                        htmlFor='year'>Futamidő
+                    </label>
                     <div
                         id='yearGroup'
                         className='calc__req__form__input-wrapper'>
@@ -118,7 +120,7 @@ const CalcRequest = (props) => {
                             max={props.loanConditions ? props.loanConditions.maxYear : '99'}
                             required={true}
                             value={props.loanRequest.year}
-                            onChange={handleChange}
+                            onChange={props.handleChange}
                             onBlur={props.handleSubmit}
                         />
                         <span className='calc__req__form__icons calc__req__form__icons--text'>év</span>
@@ -130,8 +132,7 @@ const CalcRequest = (props) => {
                 </div>
                 <button
                     className='calc__req__form__btn'
-                    onClick={props.handleSubmit}>
-                        Ajánlatok
+                    onClick={props.handleSubmit}>Ajánlatok
                 </button>
             </form>
         </div>

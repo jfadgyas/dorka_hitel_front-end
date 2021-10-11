@@ -1,5 +1,6 @@
 // Requests
 import React, {useState, useEffect} from 'react'
+import CSOK from './CSOK'
 import CalcRequest from './Calc-Request'
 import CalcResult from './Calc-Result'
 
@@ -32,14 +33,14 @@ const Calc = (props) => {
             minYear: 5,
             maxYear: 20
         },
-        {
-            loanType: 'csok',
-            hunName: 'CSOK',
-            minLoan: 200000,
-            maxLoan: 8000000,
-            minYear: 1,
-            maxYear: 8
-        },
+        // {
+        //     loanType: 'csok',
+        //     hunName: 'CSOK',
+        //     minLoan: 200000,
+        //     maxLoan: 8000000,
+        //     minYear: 1,
+        //     maxYear: 8
+        // },
     ]
     const [loanRequest, setLoanRequest] = useState({
         loanType: props.loanType,
@@ -48,8 +49,17 @@ const Calc = (props) => {
         year: '',
         isValid: false
     })
-    const [loanResult, setLoanResult] = useState([])
-
+    const [loanResult, setLoanResult] = useState({
+        data: [],
+        isLoading: true
+    })
+    const [filters, setFilters] = useState({
+        bank: [],
+        ratePeriod: [],
+        maxMonthlyPay: '',
+        showFilters: false,
+    })
+    
     useEffect(() => {
         // Switch the background color according to the loan type (tiles)
         let color
@@ -88,6 +98,46 @@ const Calc = (props) => {
         type === 'select-one' ? setLoanRequest({...loanRequest, [name]: value, isValid: false}) : setLoanRequest({...loanRequest, [name]: valueAsNumber, isValid: false})
     }
 
+    // Handle filter
+    const handleFilter = e => {
+        const {id, name, valueAsNumber, checked} = e.target
+        // Choose the right value for bank or rateperiod
+        const change = (name, value, checked) => {
+            let filter = filters[name]
+            checked ? filter.push(value) : filter = filter.filter(item => item !== value)
+            return filter
+        }
+        // Set filter value
+        let value
+        switch (name){
+            case 'maxMonthlyPay':
+                value = valueAsNumber
+                break
+            case 'showFilters':
+                value = !filters.showFilters
+                break
+            case 'ratePeriod':
+                value = change(name, parseInt(id), checked)
+                break
+            case 'bank':
+                value = change(name, id, checked)
+                break
+            default: return
+        }
+        setFilters({...filters, [name]: value})
+    }
+
+    // Apply filters on the results
+    const filterResult = () => {
+        return loanResult.data.filter(item =>
+            (filters.bank.length ? filters.bank.includes(item.bank) : true)
+            && 
+            (filters.ratePeriod.length ? filters.ratePeriod.includes(item.ratePeriod) : true)
+            && 
+            (filters.maxMonthlyPay ? filters.maxMonthlyPay >= item.monthlyPay : true)
+        )            
+    }
+
     // Validating request form
     const validate = e => {
         e.preventDefault()
@@ -110,6 +160,18 @@ const Calc = (props) => {
             return setErrorMsg(item.name, '')
         })
         if (e.type === 'click' && document.forms.requestForm.checkValidity()){
+            // Reset results, filters, set valid to show loading animation, post the query
+            setLoanResult({
+                data: [],
+                isLoading: true
+            })
+            setFilters({
+                bank: [],
+                ratePeriod: [],
+                maxMonthlyPay: '',
+                showFilters: false
+            })
+            setLoanRequest({...loanRequest, isValid: true})
             postLoanRequest()            
         }
     }
@@ -140,8 +202,10 @@ const Calc = (props) => {
         }
         try {
             const data = await fetch(URL, options).then(res => res.json())
-            setLoanResult(data)
-            setLoanRequest({...loanRequest, isValid: true})
+            setLoanResult({
+                data: data,
+                isLoading: false
+            })
         }
         catch(err){
             console.log(err)
@@ -150,13 +214,14 @@ const Calc = (props) => {
 
     return (
         <section id='calc'>
+            {loanRequest.loanType === 'csok' ? <CSOK /> : 
             <CalcRequest
                 loanConditions={loanConditions.find(item => item.loanType === loanRequest.loanType)}
                 loanRequest={loanRequest}
                 handleChange={handleChange}
                 handleSubmit={validate}
-            />
-            {loanRequest.isValid ? <CalcResult loanResult={loanResult}/> : null}
+                />}
+            {loanRequest.isValid ? <CalcResult loanResult={filterResult()} handleFilter={handleFilter} filters={filters} resultForFilters={loanResult}/> : null}
         </section>
     )
 }

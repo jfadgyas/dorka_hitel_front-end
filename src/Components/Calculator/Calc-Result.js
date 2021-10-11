@@ -1,7 +1,41 @@
 // Requests
 import React from 'react'
+import Filter from './Filter'
 
 const CalcResult = (props) => {
+    
+    // Create skeleton loading (fake) results
+    const skeletonList = () => {
+        let fakeResults = []
+        for (let i=1; i<4; i++) {
+            fakeResults.push(
+                <li key={i} className='calc__res-list__item'>
+                    <header className='calc__res-list__header'>
+                        <div className='calc__res-list__title skeleton skeleton__text'></div>
+                        <div className='calc__res-list__title skeleton skeleton__text'></div>                
+                        <div className='calc__res-list__title skeleton skeleton__text'></div>                
+                    </header>
+                    <ul className='calc__res-list'>
+                        <li className='calc__res-list__detail-wrapper'>
+                            <div className='calc__res-list__details skeleton skeleton__text'></div>
+                            <div className='calc__res-list__details skeleton skeleton__text'></div>
+                        </li>
+                        <li className='calc__res-list__detail-wrapper'>
+                            <div className='calc__res-list__details skeleton skeleton__text'></div>
+                            <div className='calc__res-list__details skeleton skeleton__text'></div>
+                        </li>
+                        <li className='calc__res-list__detail-wrapper'>
+                            <button className='calc__res-list__btn skeleton'>
+                                <div className='skeleton skeleton__text'></div>
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+            )
+        }
+        return fakeResults
+    }
+
     // Create list of results
     const loanList = props.loanResult.map(item => 
         <li
@@ -35,9 +69,10 @@ const CalcResult = (props) => {
 
     return(
         <section className='calc__res-wrapper'>
-            <h1 className='calc__res-wrapper__title'>{props.loanResult.length ? 'Legkedvezőbb ajánlat' : 'Nincs a keresésnek megfelelő ajánlat'}</h1>
+            {!props.resultForFilters.isLoading && props.resultForFilters.data.length ? <Filter resultForFilters={props.resultForFilters} filters={props.filters} handleFilter={props.handleFilter}/> : null}
+            <h1 className='calc__res-wrapper__title'>{props.resultForFilters.isLoading ? 'Várakozás az ajánlatokra' : props.loanResult.length ? 'Legkedvezőbb ajánlat' : 'Nincs a keresésnek megfelelő ajánlat'}</h1>
             <ul className='calc__res-list'>
-                {loanList}
+                {!props.resultForFilters.isLoading ? props.loanResult.length ? loanList : null : skeletonList()}
             </ul>
         </section>
     )

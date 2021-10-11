@@ -1,0 +1,20 @@
+.footer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.5em 1em;
+    background: black;
+    font-size: 13px;
+    &__groups{
+        padding: 0;
+        list-style: none;
+    }
+    &__items{
+        &:first-child{
+            text-transform: uppercase;
+        }
+    }
+    &__links{
+        color: white;
+        text-decoration: none;
+    }
+}

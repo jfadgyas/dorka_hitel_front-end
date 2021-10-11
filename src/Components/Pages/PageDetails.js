@@ -7,7 +7,7 @@ export const PageDetails = [
                     class: 'page__header',
                     text: 'Személyi kölcsön'
                 },
-                icon: 'euro_symbol',
+                icon: 'personal',
                 desc: {
                     class: 'page__desc',
                     text: 'Szabad felhasználású kölcsön, ingatlanfedezet nélkül. Akár 10 millió Ft hitelösszeg. Egyszerűbb és gyorsabb igénylés, emiatt viszont a kamatok magasabbak lehetnek. 3-5 napon belül érkezik a számlára az összeg.'
@@ -16,7 +16,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Igényléshez szükséges dokumentumok:'
+                    text: 'Igényléshez szükséges dokumentumok'
                 },
                 icon: 'description',
                 list: [
@@ -39,7 +39,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Termék jellemzők:'
+                    text: 'Termék jellemzők'
                 },
                 icon: 'settings',
                 list: [
@@ -55,7 +55,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Leggyakoribb célok:'
+                    text: 'Leggyakoribb célok'
                 },
                 icon: 'explore',
                 list: [
@@ -71,7 +71,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Elfogadható jövedelmek:'
+                    text: 'Elfogadható jövedelmek'
                 },
                 icon: 'savings',
                 list: [
@@ -103,7 +103,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Igényléshez szükséges dokumentumok:'
+                    text: 'Igényléshez szükséges dokumentumok'
                 },
                 icon: 'description',
                 list: [
@@ -118,7 +118,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Hitelbírálati idő:'
+                    text: 'Hitelbírálati idő'
                 },
                 icon: 'schedule',
                 desc: {
@@ -129,7 +129,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Termék jellemzők:'
+                    text: 'Termék jellemzők'
                 },
                 icon: 'settings',
                 list: [
@@ -146,7 +146,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Leggyakoribb célok:'
+                    text: 'Leggyakoribb célok'
                 },
                 icon: 'explore',
                 list: [
@@ -162,7 +162,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Mekkora önerőre van szükség:'
+                    text: 'Mekkora önerőre van szükség?'
                 },
                 icon: 'savings',
                 desc: {
@@ -173,7 +173,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Elfogadható jövedelmek:'
+                    text: 'Elfogadható jövedelmek'
                 },
                 icon: 'price_check',
                 list: [
@@ -189,7 +189,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Elfogadható ingatlanfedezetek:'
+                    text: 'Elfogadható ingatlanfedezetek'
                 },
                 icon: 'holiday_village',
                 desc: {
@@ -198,10 +198,10 @@ export const PageDetails = [
             },
         ]
     },
-    {
-        loanType: 'auto',
-        details: []
-    },
+    // {
+    //     loanType: 'auto',
+    //     details: []
+    // },
     {
         loanType: 'baby',
         details: [
@@ -210,22 +210,22 @@ export const PageDetails = [
                     class: 'page__header',
                     text: 'Babaváró hitel'
                 },
-                icon: 'child_care',
+                icon: 'baby',
                 desc: {
                     class: 'page__desc',
-                    text: 'A babaváró hitel házasoknak szól, akik gyermeket terveznek. Maximálisan 10 millió Ft kamatmentes kölcsön, amely szabad felhasználású. Maximum 50.000 Ft havi törlesztőrészlet. A bankoknak 10 napjuk van a hiánytalanul benyújtott igénylés elbírálására, a folyósítást ezt követően gyorsan megtörténik.'
+                    text: 'A babaváró hitel házasoknak szól, akik gyermeket terveznek. Maximálisan 10 millió Ft kamatmentes kölcsön, amely szabad felhasználású. Maximum 50.000 Ft havi törlesztőrészlet. A bankoknak 10 napjuk van a hiánytalanul benyújtott igénylés elbírálására, a folyósítás ezt követően gyorsan megtörténik.'
                 }
             },
             {
                 header: {
                     class: 'page__header',
-                    text: 'Igényléshez szükséges dokumentumok:'
+                    text: 'Igényléshez szükséges dokumentumok'
                 },
                 icon: 'description',
                 list: [
-                    'Munkáltatói igazolás',
                     'Kártya formátumú jogosítvány vagy személyi igazolvány, lakcímkártya, adókártya',
                     'Utolsó 3 havi bankszámlakivonat',
+                    'Munkáltatói igazolás banki formanyomtatványon',
                     '3 éves TB jogviszony (OEP igazolás), ami kormányhivataltól, járási hivataltól igényelhető',
                     'Házassági anyakönyvi kivonat'
                 ]
@@ -259,7 +259,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Külföldön élők, külföldi jövedelem:'
+                    text: 'Külföldön élők, külföldi jövedelem'
                 },
                 icon: 'savings',
                 desc: {
@@ -270,7 +270,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Gyermekszületés esetén:'
+                    text: 'Gyermekszületés esetén'
                 },
                 icon: 'family_restroom',
                 list: [
@@ -282,7 +282,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Ha nem születik gyermek:'
+                    text: 'Ha nem születik gyermek'
                 },
                 icon: 'no_accounts',
                 desc: {
@@ -293,7 +293,7 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Válás esetén:'
+                    text: 'Válás esetén'
                 },
                 icon: 'social_distance',
                 desc: {
@@ -309,13 +309,220 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'Személyi kölcsön'
+                    text: 'CSOK'
                 },
+                icon: 'csok',
                 desc: {
                     class: 'page__desc',
-                    text: 'Szabad felhasználású kölcsön, ingatlanfedezet nélkül. Akár 10 millió Ft hitelösszeg. Egyszerűbb és gyorsabb igénylés, emiatt viszont a kamatok magasabbak lehetnek. 3-5 napon belül érkezik a számlára az összeg.'
+                    text: 'A Családi Otthonteremtési Kedvezmény új lakás, lakóház építéséhez, új vagy használt lakás vagy ház vásárlásához, meglévő lakás vagy ház bővítéséhez, illetve preferált kistelepülésen lévő ingatlan vásárlására, korszerűsítésére, bővítésére használható államilag támogatott hitel.'
                 }
-            }
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'Igényléshez szükséges dokumentumok'
+                },
+                icon: 'description',
+                list: [
+                    'Kártya formátumú jogosítvány vagy személyi igazolvány, lakcímkártya, adókártya',
+                    'Utolsó 3 havi bankszámlakivonat',
+                    'Munkáltatói igazolás banki formanyomtatványon',
+                    'Legalább 180 napos TB jogviszony (OEP igazolás), ami kormányhivataltól, járási hivataltól igényelhető',
+                    'Falusi CSOK esetén legalább 1 éves TB jogviszony szükséges',
+                    'Vételi szándéknyilatkozat',
+                    'Ingatlan alaprajz',
+                    'Adás-vételi szerződés',
+                    'Társasházi alapító okirat',
+                    'Építési határozat, tervdokumentáció'
+                ]
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'Mekkora összeg igényelhető és milyen futamidővel?'
+                },
+                icon: 'schedule',
+                desc: {
+                    class: 'page__desc',
+                    text: 'Maximum 15 millió Ft hitelösszeg, maximum 10 millió Ft vissza nem térítendő állami támogatás, ingatlan értékhatár nélkül, legfeljebb 25 éves futamidőre.'
+                }
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'Leggyakoribb célok'
+                },
+                icon: 'explore',
+                list: [
+                    '2008. július 1-én vagy azt követően kiadott építési engedéllyel rendelkező új lakás/új lakóház építéséhez, vagy',
+                    '2008. július 1-én vagy azt követően kiadott használatbavételi engedéllyel rendelkező új lakás/új lakóház vásárlásához, vagy',
+                    'Használt lakás/lakóház vásárlásához, vagy',
+                    'Meglévő lakás/lakóház bővítéséhez, vagy',
+                    'Tetőtér-beépítésre'
+                ]
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'Kik igényelhetik a CSOK hitelt?'
+                },
+                icon: 'manage_accounts',
+                list: [
+                    'Élettársak, házastársak, egyedülálló szülők vehetik igénybe',
+                    'Vállalt gyermek után járó támogatást csak házaspárok igényelhetnek, amennyiben az igényléskor az egyik fél 40 év alatti', 
+                    'Gyermeknek az igényléskor a szülőkkel egy háztartásban kell élnie, nem rendelkezhet önálló megélhetési jövedelemmel és nem töltheti be a 25. életévét',
+                    'Büntetlen előéletű a pár mindkét tagja',
+                    'Egyiküknek sincs a NAV-nál nyilvántartott köztartozása',
+                    'Az igénylők legalább egyikének 180 napos, 10 millió Ft összegű CSOK esetén 2 éves TB jogviszonnyal kell rendelkeznie',
+                    'Használt lakás vásárlásnál a vételár maximum 20%-kal haladhatja meg a bank által megállapított forgalmi értéket',
+                    'Vásárlásnál maximum a vételár 10%-a fizethető készpénzben',
+                    'Építés, bővítés esetén a teljes költségvetés 70%-áról számlát kell bemutatni, új lakás vásárlásánál a teljes vételárról'
+                ]
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'Fontos információk'
+                },
+                icon: 'warning',
+                list: [
+                    'Eladó és vevő nem lehetnek közeli hozzátartozók',
+                    'Az ingatlanban csak az igénylők szerezhetnek tulajdont (bővítés esetén az ingatlanban minimum 50% tulajdonrésszel kell rendelkeznie az igénylőnek)'
+                ]
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'Milyen feltételeknek kell megfelelnie az ingatlannak?'
+                },
+                icon: 'assignment_turned_in',
+                list: [
+                    '12 m2-es szobával, fürdővel és WC-vel felszerelt',
+                    'Rendelkezik közműves villamos energia szolgáltatással,',
+                    'Rendelkezik egyedi fűtéssel',
+                    'Amennyiben nem közműves a szennyvízelvezetés, akkor egyedileg megoldott, továbbá',
+                    'Ha nincs közműves ivóvíz, akkor legalább ivóvíz minőségű vizet szolgáltató kút van'
+                ]
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'Bővítés'
+                },
+                icon: 'construction',
+                desc: {
+                    class: 'page__desc',
+                    text: 'Legalább egy lakószobával történő alapterület növelés, ideértve a tetőtér-beépítést is, valamint emelet-ráépítéssel vagy tetőtér-beépítéssel létrehozott lakás akkor, ha az emelet-ráépítés vagy tetőtér-beépítés révén nem jön létre két új, önálló albetétként nyilvántartott lakás.'
+                }
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'Példák korszerűsítésre'
+                },
+                icon: 'roofing',
+                list: [
+                    'Víz-, csatorna-, elektromos-, gáz-közműszolgáltatás bevezetése, illetve belső hálózatának kiépítése',
+                    'Fürdőhelyiség vagy WC létesítése olyan lakásban, amely nem rendelkezik ilyen helyiséggel',
+                    'Központi fűtés kialakítása vagy cseréje, ideértve a megújuló energiaforrások alkalmazását is',
+                    'Az épület szigetelése, ideértve a hő-, hang-, illetve vízszigetelési munkálatokat',
+                    'A külső nyílászáró energiatakarékos nyílászáróra való cseréje',
+                    'Tető cseréje, felújítása, szigetelése',
+                    'Kémény építése, korszerűsítése',
+                    'Belső tér felújítása, ideértve a belső burkolat cseréjét, a galériaépítést, a belső elektromos-, vízhálózat cseréjét, a fürdő-, WC-felújítást'
+                ]
+            },
+        ]
+    },
+    {
+        loanType: 'contact',
+        details: [
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'KAPCSOLAT'
+                },
+                icon: 'contact',
+                desc: {
+                    class: 'page__desc',
+                    text: 'Örömmel segítünk, ha segítségre, tanácsra van szüksége. Az alábbi űrlap kitöltése után munkatársunk hamarosan felkeresi egy megfelelő időpont egyeztetése céljából. Amennyiben közvetlenül szeretne kapcsolatba lépni velünk, használja további elérhetőségeinket!'
+                }
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'Elérhetőségek'
+                },
+                icon: '',
+                list: [
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--clock'></span>H-P: 8:00-17:00</div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--location'></span>Budapest</div>,
+                    <a className='contact__list-item' href='mailto:d.tary@gmail.com'><span className='contact__icon contact__icon--small contact__icon--email'></span>d.tary@gmail.com</a>,
+                    <a className='contact__list-item' href='tel:+361234567'><span className='contact__icon contact__icon--small page__icon--phone'></span>+361234567</a>,
+                ]
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'Céginformáció'
+                },
+                icon: '',
+                list: [
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--clock'></span>Adószám: </div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--location'></span>Cégjegyzékszám: </div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--email'></span>Telephely: </div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small page__icon--phone'></span>cégnév</div>,
+                ]
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'Közösségi média'
+                },
+                icon: '',
+                desc: {
+                    class: 'page__desc',
+                    text: 'fb insta linkedin'
+                }
+            },
+            // {
+            //     header: {
+            //         class: 'page__header',
+            //         text: 'Elektronikus névjegy'
+            //     },
+            //     icon: '',
+            //     desc: {
+            //         class: '',
+            //         text: '+361234567'
+            //     }
+            // },
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'Üzenetküldés'
+                },
+                icon: '',
+                desc: {
+                    class: '',
+                    text: ''
+                }
+            },
+        ]
+    },
+    {
+        loanType: 'news',
+        details: [
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'HÍREK'
+                },
+                icon: '',
+                desc: {
+                    class: 'page__desc',
+                    text: 'Aktuális pénzügyi információk'
+                }
+            },
         ]
     },
 ]
