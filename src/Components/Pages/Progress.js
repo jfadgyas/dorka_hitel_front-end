@@ -7,12 +7,12 @@ const Progress = props => {
         <div className='progress'>
             <svg className='progress__svg'>
                 <circle className='progress__circle'></circle>
-                <def>
+                <defs>
                     <linearGradient id='circleGradient' x1='0' x2='0' y1='1' y2='0'>
                         <stop className='progress__circle__gradient--start' offset='0%'/>
                         <stop className='progress__circle__gradient--end' offset='100%'/>
                     </linearGradient>
-                </def>
+                </defs>
             </svg>
             <div className='progress__status'>
                 <p>Az üzenet küldése</p>

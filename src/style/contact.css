@@ -125,8 +125,9 @@ body {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  -webkit-transform: translateX(-1em);
-          transform: translateX(-1em);
+  padding-left: 0.5em;
+  -webkit-transform: translateX(-1.5em);
+          transform: translateX(-1.5em);
   color: #484747;
   text-decoration: none;
   text-transform: uppercase;

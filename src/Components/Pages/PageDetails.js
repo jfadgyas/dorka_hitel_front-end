@@ -472,7 +472,6 @@ export const PageDetails = [
                     text: 'Céginformáció'
                 },
                 icon: '',
-                // balance, inventory 2
                 list: [
                     <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--balance'></span>Adószám: </div>,
                     <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--inventory2'></span>Cégjegyzékszám: </div>,

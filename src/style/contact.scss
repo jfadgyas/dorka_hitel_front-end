@@ -10,7 +10,8 @@
     &__list-item{
         display: flex;
         align-items: flex-start;
-        transform: translateX(-1em);
+        padding-left: 0.5em; //translate miatt kell
+        transform: translateX(-1.5em); //-1em
         color: $labelColor;
         text-decoration: none;
         text-transform: uppercase;
