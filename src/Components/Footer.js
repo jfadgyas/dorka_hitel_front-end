@@ -1,10 +1,11 @@
+// Requirements
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {PageDetails} from './Pages/PageDetails'
 import '../style/footer.css'
 
 const Footer = () => {
-
+    // Create footer links
     const footerLinks = PageDetails.map((item, index) =>
         <ul
             key={index}
@@ -13,20 +14,18 @@ const Footer = () => {
                 <li 
                     key={index}
                     className='footer__items'>
-                    <Link to='' className='footer__links'>
+                    <Link to={item.link} className='footer__links'>
                         {headers.header.text}
                     </Link>
                 </li>
             )}
         </ul>
     )
-    // const createFooterLinks = () => {
-    // }
 
     return (
         <footer className='footer'>
             {footerLinks}
-            <p>Copyright</p>
+            <p>Copyright ?? ez nem latszik ??</p>
             <p>Blabla</p>
         </footer>
     )

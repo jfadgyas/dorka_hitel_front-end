@@ -1,6 +1,7 @@
 export const PageDetails = [
     {
         loanType: 'personal',
+        link: '/szemelyi-kolcson',
         details: [
             {
                 header: {
@@ -30,7 +31,7 @@ export const PageDetails = [
                     class: 'page__header',
                     text: 'Mekkora összeg igényelhető és milyen futamidővel?'
                 },
-                icon: 'schedule',
+                icon: 'clock', //schedule-szemelyi
                 desc: {
                     class: 'page__desc',
                     text: 'Maximum 10 millió Ft kölcsön, 1-8 éves futamidővel. JTM (jövedelemarányos törlesztési mutató) szabály: A havi törlesztő maximális összege 500 ezer Ft alatti nettó jövedelem esetén annak legfeljebb 50%-a lehet, 500 ezer Ft jövedelem felett annak 60%-a.'
@@ -88,6 +89,7 @@ export const PageDetails = [
     },
     {
         loanType: 'home',
+        link: '/lakas',
         details: [
             {
                 header: {
@@ -120,7 +122,7 @@ export const PageDetails = [
                     class: 'page__header',
                     text: 'Hitelbírálati idő'
                 },
-                icon: 'schedule',
+                icon: 'clock',
                 desc: {
                     class: 'page__desc',
                     text: 'Átlagosan 1-1,5 hónapot vesz igénybe a hitelügyintézés. Ha egyéb támogatások, kérelmek is társulnak hozzá, ez az idő hosszabb lehet.'
@@ -204,6 +206,7 @@ export const PageDetails = [
     // },
     {
         loanType: 'baby',
+        link: '/baba',
         details: [
             {
                 header: {
@@ -235,7 +238,7 @@ export const PageDetails = [
                     class: 'page__header',
                     text: 'Mekkora összeg igényelhető és milyen futamidővel?'
                 },
-                icon: 'schedule',
+                icon: 'clock',
                 desc: {
                     class: 'page__desc',
                     text: '1 - 10 millió Ft szabad felhasználású kölcsön, maximum 20 éves futamidőre, melynek törlesztőrészlete nem haladhatja meg az 50.000 Ft-ot. 45.900 Ft törlesztőrészlet mellé 4.167 Ft állami kezességvállalási díj.'
@@ -305,6 +308,7 @@ export const PageDetails = [
     },
     {
         loanType: 'csok',
+        link: '/csok',
         details: [
             {
                 header: {
@@ -341,7 +345,7 @@ export const PageDetails = [
                     class: 'page__header',
                     text: 'Mekkora összeg igényelhető és milyen futamidővel?'
                 },
-                icon: 'schedule',
+                icon: 'clock',
                 desc: {
                     class: 'page__desc',
                     text: 'Maximum 15 millió Ft hitelösszeg, maximum 10 millió Ft vissza nem térítendő állami támogatás, ingatlan értékhatár nélkül, legfeljebb 25 éves futamidőre.'
@@ -436,6 +440,7 @@ export const PageDetails = [
     },
     {
         loanType: 'contact',
+        link: '/kapcsolat',
         details: [
             {
                 header: {
@@ -467,11 +472,12 @@ export const PageDetails = [
                     text: 'Céginformáció'
                 },
                 icon: '',
+                // balance, inventory 2
                 list: [
-                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--clock'></span>Adószám: </div>,
-                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--location'></span>Cégjegyzékszám: </div>,
-                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--email'></span>Telephely: </div>,
-                    <div className='contact__list-item'><span className='contact__icon contact__icon--small page__icon--phone'></span>cégnév</div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--balance'></span>Adószám: </div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--inventory2'></span>Cégjegyzékszám: </div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--location'></span>Telephely: </div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small page__icon--person'></span>Cégnév: </div>,
                 ]
             },
             {
@@ -511,6 +517,7 @@ export const PageDetails = [
     },
     {
         loanType: 'news',
+        link: '/hirek',
         details: [
             {
                 header: {

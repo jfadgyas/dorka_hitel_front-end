@@ -6,13 +6,6 @@ import ThankYou from "./ThankYou"
 import '../../style/contact.css'
 
 const Contact = () => {
-/*
-Link to active social media accounts
-Redirect to a thank you page that explains when and how you'll be contacting them and links to helpful content and resources.
-
-monday-friday 8-1700
-after fill out, one of our advisors will reach out to you to schedule time with you
-*/
 
     const [messageDetails, setMessageDetails] = useState({
         firstName: '',

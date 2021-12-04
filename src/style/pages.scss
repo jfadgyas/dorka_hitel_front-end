@@ -1,4 +1,5 @@
-
+@import './variables';
+@import './icons';
 
 .page{
     margin-top: 2em;
@@ -6,23 +7,18 @@
         margin: 0;
     }
     &__container{
-        // display: flex;
         padding: 0.1em 1em;
-        font-family: 'Barlow', sans-serif;
-        font-size: 1em;
         &:nth-child(odd){
             border-left: 0.5em solid var(--calcBackground);
-            // background: var(--calcBackground);
-            // color: white;
         }
         &:nth-child(even){
             border-right: 0.5em solid var(--calcBackground);
         }
         &:first-child{
             background: var(--calcBackground);
-            color: white;
+            color: $siteBackground;
             & .page__icon{
-                color: white;
+                color: $siteBackground;
             }
         }
         & .page__icon{
@@ -32,100 +28,20 @@
     &__header{
         font-style: italic;
         opacity: 0.8;
-        // color: var(--calcBackground);
     }
     &__icon{
-        display: inline;
+        @include icons(3.5em, var(--calcBackground));
         height: 100%;
         margin-left: 0.2em;
         float: right;
-        font-family: 'Material Icons Outlined';
-        font-style: normal;
-        font-size: 3.5em;
-        &--personal::before{
-            content: '\e926';
-        }
-        &--home::before{
-            content: '\e88a';                
-        }
-        &--auto::before{
-            content: '\e531';
-        }
-        &--baby::before{
-            content: '\eb41';
-        }
-        &--csok::before{
-            content: '\e73a';
-        }
-        &--description::before{
-            content: '\e873';
-        }
-        &--schedule::before{
-            content: '\e8b5';
-        }
-        &--settings::before{
-            content: '\e8b8';
-        }
-        &--explore::before{
-            content: '\e87a';
-        }
-        &--savings::before{
-            content: '\e2eb';
-        }
-        &--price_check::before{
-            content: '\f04b';
-        }
-        &--holiday_village::before{
-            content: '\e58a';
-        }
-        &--manage_accounts::before{
-            content: '\f02e';
-        }
-        &--family_restroom::before{
-            content: '\f1a2';
-        }
-        &--no_accounts::before{
-            content: '\f03e';
-        }
-        &--social_distance::before{
-            content: '\e1cb';
-        }
-        &--warning::before{
-            content: '\e002';
-        }
-        &--assignment_turned_in::before{
-            content: '\e862';
-        }
-        &--construction::before{
-            content: '\ea3c';
-        }
-        &--roofing::before{
-            content: '\f201';
-        }
-        &--contact::before{
-            content: '\e0cf';
-        }
-        &--phone::before{
-            content: '\e0b0';
-        }
-        &--emailAt::before{
-            content: '\e0e6';
-        }
     }
     &__desc,
     &__list{
-        // color: var(--calcBackground);
         line-height: 1.4em;
         text-align: justify;
         opacity: 0.8;
     }
-    // &__list-item{
-    // }
     &__list{
-        // position: relative;
         padding-left: 1em;
     }
-    // &__list-item{
-    //     background: sandybrown;
-    // }
 }

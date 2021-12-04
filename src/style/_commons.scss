@@ -1,0 +1,96 @@
+%cardBackground{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+    background: $siteBackground;
+    border-radius: 1em;
+    box-shadow: 0px 5px 7px $shadowGrey--card;
+    font-family: 'Barlow', sans-serif;
+    font-style: italic;
+}
+
+%button{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    padding: 0.5em 1rem;
+    border: none;
+    border-radius: 0.5em;
+    background: var(--calcBackground);
+    color: $textColor;
+    box-shadow: $buttonShadow;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.2em;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 50ms;
+    &::after{
+        content: '\e039';
+        display: inline-block;
+        padding-left: 0.3em;
+        font-family: 'Material Icons Outlined';
+        font-size: 1.5em;
+    }
+    &:active{
+        box-shadow: 0px 2px 4px hsl(0, 0%, 50%);
+        transform: scale(95%);
+    }
+}
+
+%header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0.5em;
+    background: var(--calcBackground);
+    color: $textColor;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+%form-group{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5em;
+    margin: 0.75em 0; // ez akkor kell, ha ugralos label van
+}
+
+%label{
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: $labelColor;
+}
+
+%input-wrapper{
+    display: flex;
+    position: relative;
+    margin: 0.5em 0;
+    background: $inactiveColor;
+    border: 1px solid $inactiveBorder;
+    border-radius: 0.6em;
+    &:focus-within{
+        background: $activeColor;
+        border-color: $activeBorder;
+        & > :nth-child(odd){
+            color: $activeBorder;
+        }
+    }
+}   
+
+%input{
+    width: 80%; //adjust to correct size later
+    height: 2em;
+    padding: 0.3rem;
+    border: none;
+    font-family: 'Barlow', sans-serif;
+    font-style: normal;
+    font-size: 1.2em;
+    opacity: 0.7;
+    // -moz-appearance: textfield;
+}

@@ -1,3 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+:root {
+  --calcBackground: hsl(199, 98%, 62%);
+  --filterHeight: 0;
+  --progress: 910;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', sans-serif;
+}
+
 .page {
   margin-top: 2em;
 }
@@ -8,8 +23,6 @@
 
 .page__container {
   padding: 0.1em 1em;
-  font-family: 'Barlow', sans-serif;
-  font-size: 1em;
 }
 
 .page__container:nth-child(odd) {
@@ -39,13 +52,113 @@
 }
 
 .page__icon {
-  display: inline;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 2rem;
+  padding: 0.5rem;
+  color: var(--calcBackground);
+  font-family: 'Material Icons Outlined';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3.5em;
+  line-height: 1;
+  text-align: center;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: 'liga';
+          font-feature-settings: 'liga';
   height: 100%;
   margin-left: 0.2em;
   float: right;
-  font-family: 'Material Icons Outlined';
-  font-style: normal;
-  font-size: 3.5em;
+}
+
+.page__icon--text {
+  font-family: 'Barlow', sans-serif;
+  font-size: 1em;
+}
+
+.page__icon--credit::before {
+  content: '\e870';
+}
+
+.page__icon--cash::before {
+  content: '\e57d';
+}
+
+.page__icon--calendar::before {
+  content: '\f1bb';
+}
+
+.page__icon--child::before {
+  content: '\f1ac';
+}
+
+.page__icon--addchild::before {
+  content: '\e7fe';
+}
+
+.page__icon--filter::before {
+  content: '\ef4f';
+}
+
+.page__icon--question::before {
+  content: '\e8fd';
+}
+
+.page__icon--name::before {
+  content: '\e8a6';
+}
+
+.page__icon--phone::before {
+  content: '\e0b0';
+}
+
+.page__icon--email::before {
+  content: '\e0be';
+}
+
+.page__icon--clock::before {
+  content: '\e8b5';
+}
+
+.page__icon--message::before {
+  content: '\e0b9';
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding-top: 0.25em;
+}
+
+.page__icon--location::before {
+  content: '\e0c8';
+}
+
+.page__icon--close::before {
+  content: '\e166';
+}
+
+.page__icon--news::before {
+  content: '\f009';
+}
+
+.page__icon--about::before {
+  content: '\e7fd';
+}
+
+.page__icon--contact::before {
+  content: '\e0cf';
 }
 
 .page__icon--personal::before {
@@ -70,10 +183,6 @@
 
 .page__icon--description::before {
   content: '\e873';
-}
-
-.page__icon--schedule::before {
-  content: '\e8b5';
 }
 
 .page__icon--settings::before {
@@ -128,16 +237,16 @@
   content: '\f201';
 }
 
-.page__icon--contact::before {
-  content: '\e0cf';
+.page__icon--balance::before {
+  content: '\eaf6';
 }
 
-.page__icon--phone::before {
-  content: '\e0b0';
+.page__icon--inventory2::before {
+  content: '\e1a1';
 }
 
-.page__icon--emailAt::before {
-  content: '\e0e6';
+.page__icon--person::before {
+  content: '\e55a';
 }
 
 .page__desc, .page__list {

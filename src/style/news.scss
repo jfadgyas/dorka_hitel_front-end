@@ -1,31 +1,25 @@
+@import './variables';
+@import './icons';
+@import './commons';
+
 .news{
     &__list{
         padding: 0;
         list-style: none;
     }
     &__item{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    // align-items: center;
-    width: 90%;
-    margin: 1em auto;
-    background: white;
-    border-radius: 1em;
-    box-shadow: 0px 5px 7px rgb(207, 201, 201);
-    font-family: 'Barlow', sans-serif;
-    font-style: italic;
+        @extend %cardBackground;
+        margin: 1.3em auto;
+        overflow: hidden;
     }
     &__label{
-        // display: block;  
-        margin-bottom: 0;
-        font-size: 1.1em;
-        font-weight: 600;
-        color: rgb(71, 70, 70);
+        @extend %label;
+        background: $inactiveColor;
     }
     &__date{
-        font-size: 0.7em;//12px;
-        color: #FC7749;
+        font-size: 0.7em;
+        background: $inactiveColor;
+        color: $dateColor;
         font-weight: bold;
         opacity: 0.8;
     }
@@ -35,30 +29,9 @@
         padding: 0 0.5em;
     }
     &__icon{
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 1rem;
-        // height: 2rem;
+        @include icons(1em, $dateColor);
+        width: 1em;
+        height: 1em;
         padding: 0.2em;
-        // color: $inactiveBorder;//#749199;
-        font-family: 'Material Icons';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1em;
-        line-height: 1;
-        text-align: center;
-        text-transform: none;
-        letter-spacing: normal;
-        word-wrap: normal;
-        white-space: nowrap;
-        direction: ltr;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-        -moz-osx-font-smoothing: grayscale;
-        font-feature-settings: 'liga';
-        &--clock::before{
-            content: '\e8b5';
-        }
     }
 }

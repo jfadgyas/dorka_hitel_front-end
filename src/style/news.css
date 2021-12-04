@@ -1,6 +1,16 @@
-.news__list {
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+:root {
+  --calcBackground: hsl(199, 98%, 62%);
+  --filterHeight: 0;
+  --progress: 910;
+}
+
+body {
+  margin: 0;
   padding: 0;
-  list-style: none;
+  font-family: 'Barlow', sans-serif;
 }
 
 .news__item {
@@ -15,7 +25,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   width: 90%;
-  margin: 1em auto;
+  margin: 0 auto;
   background: white;
   border-radius: 1em;
   -webkit-box-shadow: 0px 5px 7px #cfc9c9;
@@ -25,15 +35,30 @@
 }
 
 .news__label {
-  margin-bottom: 0;
+  margin: 0;
   font-size: 1.1em;
   font-weight: 600;
-  color: #474646;
+  color: #484747;
+}
+
+.news__list {
+  padding: 0;
+  list-style: none;
+}
+
+.news__item {
+  margin: 1.3em auto;
+  overflow: hidden;
+}
+
+.news__label {
+  background: rgba(134, 216, 253, 0.349);
 }
 
 .news__date {
   font-size: 0.7em;
-  color: #FC7749;
+  background: rgba(134, 216, 253, 0.349);
+  color: #fc774a;
   font-weight: bold;
   opacity: 0.8;
 }
@@ -52,9 +77,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 1rem;
-  padding: 0.2em;
-  font-family: 'Material Icons';
+  width: 2rem;
+  padding: 0.5rem;
+  color: #fc774a;
+  font-family: 'Material Icons Outlined';
   font-style: normal;
   font-weight: 400;
   font-size: 1em;
@@ -70,9 +96,172 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-feature-settings: 'liga';
           font-feature-settings: 'liga';
+  width: 1em;
+  height: 1em;
+  padding: 0.2em;
+}
+
+.news__icon--text {
+  font-family: 'Barlow', sans-serif;
+  font-size: 1em;
+}
+
+.news__icon--credit::before {
+  content: '\e870';
+}
+
+.news__icon--cash::before {
+  content: '\e57d';
+}
+
+.news__icon--calendar::before {
+  content: '\f1bb';
+}
+
+.news__icon--child::before {
+  content: '\f1ac';
+}
+
+.news__icon--addchild::before {
+  content: '\e7fe';
+}
+
+.news__icon--filter::before {
+  content: '\ef4f';
+}
+
+.news__icon--question::before {
+  content: '\e8fd';
+}
+
+.news__icon--name::before {
+  content: '\e8a6';
+}
+
+.news__icon--phone::before {
+  content: '\e0b0';
+}
+
+.news__icon--email::before {
+  content: '\e0be';
 }
 
 .news__icon--clock::before {
   content: '\e8b5';
+}
+
+.news__icon--message::before {
+  content: '\e0b9';
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding-top: 0.25em;
+}
+
+.news__icon--location::before {
+  content: '\e0c8';
+}
+
+.news__icon--close::before {
+  content: '\e166';
+}
+
+.news__icon--news::before {
+  content: '\f009';
+}
+
+.news__icon--about::before {
+  content: '\e7fd';
+}
+
+.news__icon--contact::before {
+  content: '\e0cf';
+}
+
+.news__icon--personal::before {
+  content: '\e926';
+}
+
+.news__icon--home::before {
+  content: '\e88a';
+}
+
+.news__icon--auto::before {
+  content: '\e531';
+}
+
+.news__icon--baby::before {
+  content: '\eb41';
+}
+
+.news__icon--csok::before {
+  content: '\e73a';
+}
+
+.news__icon--description::before {
+  content: '\e873';
+}
+
+.news__icon--settings::before {
+  content: '\e8b8';
+}
+
+.news__icon--explore::before {
+  content: '\e87a';
+}
+
+.news__icon--savings::before {
+  content: '\e2eb';
+}
+
+.news__icon--price_check::before {
+  content: '\f04b';
+}
+
+.news__icon--holiday_village::before {
+  content: '\e58a';
+}
+
+.news__icon--manage_accounts::before {
+  content: '\f02e';
+}
+
+.news__icon--family_restroom::before {
+  content: '\f1a2';
+}
+
+.news__icon--no_accounts::before {
+  content: '\f03e';
+}
+
+.news__icon--social_distance::before {
+  content: '\e1cb';
+}
+
+.news__icon--warning::before {
+  content: '\e002';
+}
+
+.news__icon--assignment_turned_in::before {
+  content: '\e862';
+}
+
+.news__icon--construction::before {
+  content: '\ea3c';
+}
+
+.news__icon--roofing::before {
+  content: '\f201';
+}
+
+.news__icon--balance::before {
+  content: '\eaf6';
+}
+
+.news__icon--inventory2::before {
+  content: '\e1a1';
+}
+
+.news__icon--person::before {
+  content: '\e55a';
 }
 /*# sourceMappingURL=news.css.map */

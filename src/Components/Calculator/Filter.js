@@ -44,9 +44,11 @@ const Filter = props => {
 
     return (   
         <section className='filter'>
-            <label className='filter__header' htmlFor='showFilters'>
-                <span className='filter__icons filter__icons--filter'></span>
-                Szűrők {props.filters.showFilters ? ' elrejtése' : ' megjelenítése'}
+            <label  htmlFor='showFilters'>
+                <h1 className='filter__header'>
+                    <span className='filter__icons filter__icons--filter'></span>
+                    Szűrők {props.filters.showFilters ? ' elrejtése' : ' megjelenítése'}
+                </h1>
             </label>
             <input
                 className='filter__input--hidden'

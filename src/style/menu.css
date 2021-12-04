@@ -1,7 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+:root {
+  --calcBackground: hsl(199, 98%, 62%);
+  --filterHeight: 0;
+  --progress: 910;
+}
+
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Barlow', sans-serif;
 }
 
 .menu {
@@ -76,7 +85,6 @@ body {
           align-items: center;
   width: 100%;
   height: 100%;
-  font-family: 'Barlow', sans-serif;
   text-decoration: none;
   text-align: center;
   color: white;
@@ -84,6 +92,18 @@ body {
 }
 
 .menu__icons {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 2rem;
+  padding: 0.5rem;
+  color: white;
   font-family: 'Material Icons Outlined';
   font-style: normal;
   font-weight: 400;
@@ -100,14 +120,74 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-feature-settings: 'liga';
           font-feature-settings: 'liga';
+  width: auto;
+  height: auto;
+  padding: 0;
+  opacity: 0.8;
 }
 
-.menu__icons--close::before {
-  content: '\e166';
+.menu__icons--text {
+  font-family: 'Barlow', sans-serif;
+  font-size: 1em;
 }
 
 .menu__icons--credit::before {
   content: '\e870';
+}
+
+.menu__icons--cash::before {
+  content: '\e57d';
+}
+
+.menu__icons--calendar::before {
+  content: '\f1bb';
+}
+
+.menu__icons--child::before {
+  content: '\f1ac';
+}
+
+.menu__icons--addchild::before {
+  content: '\e7fe';
+}
+
+.menu__icons--filter::before {
+  content: '\ef4f';
+}
+
+.menu__icons--question::before {
+  content: '\e8fd';
+}
+
+.menu__icons--name::before {
+  content: '\e8a6';
+}
+
+.menu__icons--phone::before {
+  content: '\e0b0';
+}
+
+.menu__icons--email::before {
+  content: '\e0be';
+}
+
+.menu__icons--clock::before {
+  content: '\e8b5';
+}
+
+.menu__icons--message::before {
+  content: '\e0b9';
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding-top: 0.25em;
+}
+
+.menu__icons--location::before {
+  content: '\e0c8';
+}
+
+.menu__icons--close::before {
+  content: '\e166';
 }
 
 .menu__icons--news::before {
@@ -140,5 +220,73 @@ body {
 
 .menu__icons--csok::before {
   content: '\e73a';
+}
+
+.menu__icons--description::before {
+  content: '\e873';
+}
+
+.menu__icons--settings::before {
+  content: '\e8b8';
+}
+
+.menu__icons--explore::before {
+  content: '\e87a';
+}
+
+.menu__icons--savings::before {
+  content: '\e2eb';
+}
+
+.menu__icons--price_check::before {
+  content: '\f04b';
+}
+
+.menu__icons--holiday_village::before {
+  content: '\e58a';
+}
+
+.menu__icons--manage_accounts::before {
+  content: '\f02e';
+}
+
+.menu__icons--family_restroom::before {
+  content: '\f1a2';
+}
+
+.menu__icons--no_accounts::before {
+  content: '\f03e';
+}
+
+.menu__icons--social_distance::before {
+  content: '\e1cb';
+}
+
+.menu__icons--warning::before {
+  content: '\e002';
+}
+
+.menu__icons--assignment_turned_in::before {
+  content: '\e862';
+}
+
+.menu__icons--construction::before {
+  content: '\ea3c';
+}
+
+.menu__icons--roofing::before {
+  content: '\f201';
+}
+
+.menu__icons--balance::before {
+  content: '\eaf6';
+}
+
+.menu__icons--inventory2::before {
+  content: '\e1a1';
+}
+
+.menu__icons--person::before {
+  content: '\e55a';
 }
 /*# sourceMappingURL=menu.css.map */

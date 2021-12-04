@@ -32,7 +32,7 @@ const ThankYou = props => {
             <p>Az alábbi gombbal {resultText[props.status].continueText}</p>
             <Link className='thankYou__link' to={resultText[props.status].link}>
                 <button
-                    className='calc__res-list__btn'
+                    className={`thankYou__btn thankYou__btn--${props.status}`}
                     onClick={props.status === 'failed' ? props.retry : undefined}>{resultText[props.status].buttonText}
                 </button>
             </Link>

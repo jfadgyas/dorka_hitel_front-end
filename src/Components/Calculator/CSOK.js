@@ -52,7 +52,7 @@ const CSOK = () => {
                             checked={csok.csokType === 'normal'}
                             onChange={handleChange}/>
                         Normál
-                        <span className='csok__icon csok__icon--question'>icon</span>
+                        <span className='csok__icon csok__icon--question'></span>
                         <small className='csok__tooltip'>Új ingatlan vásárlás, építés, vagy használt ingatlan vásárlás, bővítés</small>
                     </label>
                     <label className='csok__label'>

@@ -1,4 +1,18 @@
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+:root {
+  --calcBackground: hsl(199, 98%, 62%);
+  --filterHeight: 0;
+  --progress: 910;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', sans-serif;
+}
+
 .tiles {
   display: -ms-grid;
   display: grid;
@@ -20,27 +34,39 @@
 }
 
 .tiles__tile--personal {
-  background: #3dc0fd;
+  background: #3fc1fd;
 }
 
 .tiles__tile--home {
-  background: #31cf1c;
+  background: #31ce1c;
 }
 
 .tiles__tile--auto {
-  background: #FCA53D;
+  background: #fca53b;
 }
 
 .tiles__tile--baby {
-  background: #FC566C;
+  background: #fc546b;
 }
 
 .tiles__tile--csok {
-  background: #FC7749;
+  background: #fc774a;
 }
 
 .tiles__icon {
-  font-family: 'Material Icons';
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 2rem;
+  padding: 0.5rem;
+  color: white;
+  font-family: 'Material Icons Outlined';
   font-style: normal;
   font-weight: 400;
   font-size: 4em;
@@ -56,6 +82,84 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-feature-settings: 'liga';
           font-feature-settings: 'liga';
+  width: 3rem;
+  height: 3rem;
+}
+
+.tiles__icon--text {
+  font-family: 'Barlow', sans-serif;
+  font-size: 1em;
+}
+
+.tiles__icon--credit::before {
+  content: '\e870';
+}
+
+.tiles__icon--cash::before {
+  content: '\e57d';
+}
+
+.tiles__icon--calendar::before {
+  content: '\f1bb';
+}
+
+.tiles__icon--child::before {
+  content: '\f1ac';
+}
+
+.tiles__icon--addchild::before {
+  content: '\e7fe';
+}
+
+.tiles__icon--filter::before {
+  content: '\ef4f';
+}
+
+.tiles__icon--question::before {
+  content: '\e8fd';
+}
+
+.tiles__icon--name::before {
+  content: '\e8a6';
+}
+
+.tiles__icon--phone::before {
+  content: '\e0b0';
+}
+
+.tiles__icon--email::before {
+  content: '\e0be';
+}
+
+.tiles__icon--clock::before {
+  content: '\e8b5';
+}
+
+.tiles__icon--message::before {
+  content: '\e0b9';
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding-top: 0.25em;
+}
+
+.tiles__icon--location::before {
+  content: '\e0c8';
+}
+
+.tiles__icon--close::before {
+  content: '\e166';
+}
+
+.tiles__icon--news::before {
+  content: '\f009';
+}
+
+.tiles__icon--about::before {
+  content: '\e7fd';
+}
+
+.tiles__icon--contact::before {
+  content: '\e0cf';
 }
 
 .tiles__icon--personal::before {
@@ -78,9 +182,76 @@
   content: '\e73a';
 }
 
+.tiles__icon--description::before {
+  content: '\e873';
+}
+
+.tiles__icon--settings::before {
+  content: '\e8b8';
+}
+
+.tiles__icon--explore::before {
+  content: '\e87a';
+}
+
+.tiles__icon--savings::before {
+  content: '\e2eb';
+}
+
+.tiles__icon--price_check::before {
+  content: '\f04b';
+}
+
+.tiles__icon--holiday_village::before {
+  content: '\e58a';
+}
+
+.tiles__icon--manage_accounts::before {
+  content: '\f02e';
+}
+
+.tiles__icon--family_restroom::before {
+  content: '\f1a2';
+}
+
+.tiles__icon--no_accounts::before {
+  content: '\f03e';
+}
+
+.tiles__icon--social_distance::before {
+  content: '\e1cb';
+}
+
+.tiles__icon--warning::before {
+  content: '\e002';
+}
+
+.tiles__icon--assignment_turned_in::before {
+  content: '\e862';
+}
+
+.tiles__icon--construction::before {
+  content: '\ea3c';
+}
+
+.tiles__icon--roofing::before {
+  content: '\f201';
+}
+
+.tiles__icon--balance::before {
+  content: '\eaf6';
+}
+
+.tiles__icon--inventory2::before {
+  content: '\e1a1';
+}
+
+.tiles__icon--person::before {
+  content: '\e55a';
+}
+
 .tiles__text {
   margin: 0.5em 0;
-  font-family: 'Barlow', sans-serif;
   font-size: 1.1em;
 }
 /*# sourceMappingURL=tiles.css.map */

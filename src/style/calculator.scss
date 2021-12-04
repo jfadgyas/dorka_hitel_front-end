@@ -1,148 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-
-$inactiveBorder: #3099c975;//#749199;
-$inactiveColor: #89d8fd59;//#89d8fd79;//#9ad3d681;
-$activeBorder: #1769c6;
-$activeColor: rgba(61, 192, 253, 0.5);
-$validBorder: #17c672;
-$validColor: rgba(69, 248, 189, 0.5);
-$invalidBorder: #f31d1d;
-$invalidColor: rgba(255, 100, 100, 0.5);
-
-:root{
-    --calcBackground: #3dc0fd; //will be set from the react app
-    --filterHeight: 0;
-}
+@import './variables';
+@import './icons';
+@import './commons';
 
 // Styling request
 .calc__req-wrapper{
-    background: linear-gradient(to bottom, var(--calcBackground) 10%, rgb(255, 255, 255) 90%);
-    //#3dc0fd
+    background: linear-gradient(to bottom, var(--calcBackground) 10%, $siteBackground 90%);
 }
 .calc__req__header{
-    display: block;
-    margin: 0;
-    padding: 0.5em;
-    color: white;
-    font-family: 'Open Sans', sans-serif;
+    @extend %header;
+    background: transparent;
     font-size: 2em;
-    text-transform: uppercase;
 }
 .calc__req__form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @extend %cardBackground;
     align-items: center;
-    width: 90%;
-    margin: 0 auto;
-    background: white;
-    // border: 1px solid aquamarine;
-    border-radius: 1em;
-    box-shadow: 0px 5px 7px rgb(207, 201, 201);
-    font-family: 'Barlow', sans-serif;
-    font-style: italic;
-    // transform: translateY(-7.5em);
     &__groups{
-        // display: flex;
-        // flex-direction: column;
-        // align-items: flex-start;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0.5em;
+        @extend %form-group;
+        margin: 0; // ha ugralos kell akkor marad a margin
     }
     &__labels{
-        display: block;  
-        font-size: 1.1em;
-        font-weight: 600;
-        color: rgb(71, 70, 70);
-    }
-    &__input-wrapper{
-        display: flex;
-        margin: 0.5em 0;
-        background: $inactiveColor;//#9ad3d681; //rgba(127, 255, 212, 0.534);
-        border: 1px solid $inactiveBorder;//#749199;
-        border-radius: 0.6em;
-        &:focus-within{
-            background: rgba(61, 192, 253, 0.5);
-            border-color: #1769c6;
-            & > :nth-child(odd){
-                color: #1769c6;
-            }
-        }
+        @extend %label;
     }
     &__icons{
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 2rem;
-        height: 2rem;
-        padding: 0.5rem;
-        color: $inactiveBorder;//#749199;
-        font-family: 'Material Icons';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.5em;
-        line-height: 1;
-        text-align: center;
-        text-transform: none;
-        letter-spacing: normal;
-        word-wrap: normal;
-        white-space: nowrap;
-        direction: ltr;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-        -moz-osx-font-smoothing: grayscale;
-        font-feature-settings: 'liga';
-        &--text{
-            font-family: 'Barlow', sans-serif;
-            font-size: 1em;
-        }
-        &--credit{
-            &::before{
-                content: '\e870';
-            }
-        }
-        &--cash{
-            &::before{
-                content: '\e57d';
-            }
-        }
-        &--calendar{
-            &::before{
-                content: '\f1bb';
-            }
-        }
-        &--child{
-            &::before{
-                content: '\f1ac';
-            }
-        }
-        &--addchild{
-            &::before{
-                content: '\e7fe';
-            }
-        }
+        @include icons(1.5em, $inactiveBorder);
     }
+    &__input-wrapper{
+        @extend %input-wrapper;
+    }    
     &__inputs{
-        width: 80%; //adjust to correct size later
-        height: 2em;
-        padding: 0.3rem;
-        border: none;
-        font-family: 'Barlow', sans-serif;
-        font-style: normal;
-        font-size: 1.2em;
-        opacity: 0.7; //vagy color: rgba0.5
-        // color: rgba(0, 0, 0, 0.5);
-        // appearance: none;
-        // -moz-appearance: textfield;
+        @extend %input;
         &--select{
-            // position: relative;
             width: 100%;
             height: 2.5em;
             border-top-right-radius: 0.5em;
             border-bottom-right-radius: 0.5em;
+            // For custom select arrow
+            // position: relative;
             // appearance: none;  
             // background-image:
             // linear-gradient(45deg, transparent 50%, blue 50%),
@@ -164,53 +57,24 @@ $invalidColor: rgba(255, 100, 100, 0.5);
         }
     }
     &__error{
-        color: $invalidBorder;//#f31d1d;
+        color: $invalidBorder;
     }
     &__btn{
-        display: flex;
-        align-items: center;
-        margin-bottom: 1.5em;
-        padding: 0.5em 1rem;
-        border: none;
-        border-radius: 0.5em;
-        background: var(--calcBackground);//rgba(61, 192, 253, 1);
-        color: white;
-        box-shadow: 
-            0px 2px 0px grey,
-            0px 5px 8px grey;
-        font-family: 'Barlow', sans-serif;
-        font-size: 1.2em; //???
-        text-transform: capitalize;
-        letter-spacing: 1px;
-        &::after{
-            content: '\e039';
-            display: inline-block;
-            padding-left: 0.3em;
-            font-family: 'Material Icons';
-            font-size: 1.5em;
-        }
-    }
-}
-
-.active{ //nemkell?
-    background: $activeColor;//rgba(61, 192, 253, 0.5);
-    border-color: $activeBorder;//#1769c6;
-    .calc__req__form__icons{
-        color: $activeBorder;//#1769c6;
+        @extend %button;
     }
 }
 
 .valid{
-    background: $validColor;//rgba(69, 248, 189, 0.5);
-    border-color: $validBorder;//#17c672;
+    background: $validColor;
+    border-color: $validBorder;
     .calc__req__form__icons{
         color: $validBorder;
     }
 }
 
 .invalid{
-    background: $invalidColor;//rgba(255, 100, 100, 0.5);
-    border-color: $invalidBorder;//#f31d1d;
+    background: $invalidColor;
+    border-color: $invalidBorder;
     .calc__req__form__icons{
         color: $invalidBorder;
     }
@@ -218,20 +82,11 @@ $invalidColor: rgba(255, 100, 100, 0.5);
 
 // Styling filter
 .filter{
-    color: rgb(71, 70, 70);
-    font-family: 'Barlow', sans-serif;
-    font-size: 1em;
+    color: $labelColor;
     &__header{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @extend %header;
+        margin: 0;
         margin-top: 1.5em;
-        padding: 0.25em;
-        background: var(--calcBackground);
-        color: white;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1em;
-        text-transform: uppercase;
         cursor: pointer;
     }
     &__wrapper{
@@ -257,9 +112,9 @@ $invalidColor: rgba(255, 100, 100, 0.5);
             background: $activeBorder;
         }
     }
-    &__title{  
-        margin: 0;   
-        font-size: 1em;
+    &__title{
+        @extend %label;
+        font-size: 1em; //font size majd eldol, hogy hogy nez ki telon
         font-style: italic;
     }
     &__list{
@@ -270,6 +125,7 @@ $invalidColor: rgba(255, 100, 100, 0.5);
         line-height: 1.5; //?
     }
     &__label{
+        // chkbox labels
         display: inline-flex;
         justify-content: space-between;
         align-items: center;
@@ -282,31 +138,8 @@ $invalidColor: rgba(255, 100, 100, 0.5);
         margin: 1em 0;
     }
     &__icons{
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: 2rem;
-        height: 2rem;
-        // padding: 0.5rem;
-        color: white;//$inactiveBorder;//#749199;
-        font-family: 'Material Icons Outlined';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.5em;
-        line-height: 1;
-        text-align: center;
-        text-transform: none;
-        letter-spacing: normal;
-        word-wrap: normal;
-        white-space: nowrap;
-        direction: ltr;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-        -moz-osx-font-smoothing: grayscale;
-        font-feature-settings: 'liga';
-        &--filter::after{
-            content: '\ef4f';
-        }
+        @include icons(1.5em, $textColor);
+        padding: 0;
     }
     &__logos{
         max-width: 50%;
@@ -316,37 +149,27 @@ $invalidColor: rgba(255, 100, 100, 0.5);
 
 // Styling results
 .calc__res-wrapper{
-    &__title{
-        background: var(--calcBackground);
-        padding: 0.5em;
-        color: white;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1em;
-        text-transform: uppercase;
-        text-align: center;
+    &__header{
+        @extend %header;
+        margin: 0;
+        margin-top: 1.5em;
     }
 }
 .calc__res-list{
-    display: inline;
+    // display: inline; // nem tudom miert kell?
     width: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
-    font-family: 'Barlow', sans-serif;
     font-style: italic;
     font-size: 0.86em; //1em;
     &__item{
-        display: flex;
+        @extend %cardBackground;
         position: relative;
-        width: 90%;
-        // height: 8em;
         margin: 4em auto;
-        border-radius: 1em;
         border-top-left-radius: 0;
-        box-shadow: 0px 5px 7px rgb(207, 201, 201);
-        border-top: 1px solid rgba(207, 201, 201, 0.3);
+        border-top: 1px solid hsla(0, 6%, 80%, 0.3); // $shadowGrey with opacity
         &:first-child{
-            margin-top: 4em;
             & h3:first-of-type{
                 background: $validColor;
                 color: $validBorder;
@@ -356,7 +179,7 @@ $invalidColor: rgba(255, 100, 100, 0.5);
     &__header{
         position: absolute;
         margin: 0;
-        top: -2em;
+        top: -2.55em;
     }
     &__title{
         display: inline-block;
@@ -376,12 +199,12 @@ $invalidColor: rgba(255, 100, 100, 0.5);
         padding: 0.5em;
         font-size: 1.15em;
         &:nth-child(even){
-            background: darken($color: #FFFFFF, $amount: 6%);
+            background: darken($color: $siteBackground, $amount: 6%);
         }
     }
     &__details{
         margin: 0;
-        color: rgb(71, 70, 70);
+        color: $labelColor;
         font-size: 1.2em;
         font-weight: normal;
         &:last-child{
@@ -389,28 +212,9 @@ $invalidColor: rgba(255, 100, 100, 0.5);
         }
     }
     &__btn{
-        display: flex;
-        align-items: center;
+        @extend %button;
         margin: 0.5em auto;
-        padding: 0.5em 1rem;
-        border: none;
-        border-radius: 0.5em;
-        background: var(--calcBackground);//rgba(61, 192, 253, 1);
-        color: white;
-        box-shadow: 
-            0px 2px 0px grey,
-            0px 5px 8px grey;
-        font-family: 'Barlow', sans-serif;
         font-size: 1em;
-        text-transform: capitalize;
-        letter-spacing: 1px;
-        &::after{
-            content: '\e039';
-            display: inline-block;
-            padding-left: 0.3em;
-            font-family: 'Material Icons';
-            font-size: 1.5em;
-        }
     }
 }
 
@@ -436,36 +240,8 @@ $invalidColor: rgba(255, 100, 100, 0.5);
 
 // Styling CSOK table
 .csok{
-    // display: flex;
-    // flex-direction: column;
-    // font-family: 'Barlow', sans-serif;
-    // font-style: italic;
     &__icon{
-        display: inline-flex;
-        // justify-content: center;
-        align-items: center;
-        width: 2rem;
-        height: 2rem;
-        // padding: 0.5rem;
-        // color: white;//$inactiveBorder;//#749199;
-        font-family: 'Material Icons Outlined';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.5em;
-        line-height: 1;
-        text-align: center;
-        text-transform: none;
-        letter-spacing: normal;
-        word-wrap: normal;
-        white-space: nowrap;
-        direction: ltr;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeLegibility;
-        -moz-osx-font-smoothing: grayscale;
-        font-feature-settings: 'liga';
-        &--question::before{
-            content: '\e8fd';
-        }
+        @include icons(1.5em, $activeColor);        
     }
     &__label{
         display: inline-flex;
@@ -473,7 +249,7 @@ $invalidColor: rgba(255, 100, 100, 0.5);
         align-items: center;
         margin-top: 0.5em;
     }
-    // &__input{
+    // &__input{ // doesnt look good on radiobuttons
     //     accent-color: $activeColor;
     // }
     &__tooltip{
@@ -482,7 +258,7 @@ $invalidColor: rgba(255, 100, 100, 0.5);
         padding: 0.2em;
         border-radius: 0.5em;
         background: var(--calcBackground);
-        color: white;
+        color: $textColor;
         &::before{
             content: '';
             position: absolute;
@@ -506,7 +282,7 @@ $invalidColor: rgba(255, 100, 100, 0.5);
         &__cols{
             transition: 300ms;            
             &--selected{
-                background: $inactiveColor;//var(--calcBackground);
+                background: $inactiveColor;
             }
         }
         &__head{
@@ -529,7 +305,7 @@ $invalidColor: rgba(255, 100, 100, 0.5);
             &--selected{
                 background: $activeBorder;
                 border: 1px solid $inactiveColor;
-                color: white;
+                color: $textColor;
             }
             &--hidden{
                 display: none;
@@ -539,8 +315,7 @@ $invalidColor: rgba(255, 100, 100, 0.5);
     &__result{
         margin: 0;
         padding: 1em;
-        font-size: 15px;
-        font-family: 'Barlow', sans-serif;
+        font-size: 0.95em;
         font-style: italic;
     }
 }

@@ -1,9 +1,9 @@
 // Requests
 import React from 'react'
+import { Banks } from './Banks'
 import Filter from './Filter'
 
 const CalcResult = (props) => {
-    
     // Create skeleton loading (fake) results
     const skeletonList = () => {
         let fakeResults = []
@@ -37,16 +37,22 @@ const CalcResult = (props) => {
     }
 
     // Create list of results
-    const loanList = props.loanResult.map(item => 
-        <li
+    const loanList = props.loanResult.map(item =>
+        {
+            console.log(item.bank)
+        
+        return <li
             className='calc__res-list__item'
             key={item._id}
             id={item._id}>
             <header className='calc__res-list__header'>
                 <h3 className='calc__res-list__title'>{item.bank}</h3>
-                <p className='calc__res-list__title'> {item.product}</p>                
+                <p className='calc__res-list__title'> {item.product}</p>
             </header>
             <ul className='calc__res-list'>
+                <li className='calc__res-list__detail-wrapper'>
+                    <img className='filter__logos' src={`/images/${Banks.find(bank => bank.name === item.bank).logo}`} alt='logo'></img>                
+                </li>
                 <li className='calc__res-list__detail-wrapper'>
                     <h4 className='calc__res-list__details'>Havi törlesztő</h4>
                     {item.ratePeriod ? 
@@ -59,18 +65,19 @@ const CalcResult = (props) => {
                 <li className='calc__res-list__detail-wrapper'>
                     <h4 className='calc__res-list__details'>Teljes visszafizetés</h4>
                     <p className='calc__res-list__details'>{item.fullPay} Ft</p>
-                </li>
+                </li>                
                 <li className='calc__res-list__detail-wrapper'>
                     <button className='calc__res-list__btn'>Részletek</button>
                 </li>
             </ul>
         </li>
+        }
     )
 
     return(
         <section className='calc__res-wrapper'>
             {!props.resultForFilters.isLoading && props.resultForFilters.data.length ? <Filter resultForFilters={props.resultForFilters} filters={props.filters} handleFilter={props.handleFilter}/> : null}
-            <h1 className='calc__res-wrapper__title'>{props.resultForFilters.isLoading ? 'Várakozás az ajánlatokra' : props.loanResult.length ? 'Legkedvezőbb ajánlat' : 'Nincs a keresésnek megfelelő ajánlat'}</h1>
+            <h1 className='calc__res-wrapper__header'>{props.resultForFilters.isLoading ? 'Várakozás az ajánlatokra' : props.loanResult.length ? 'Legkedvezőbb ajánlat' : 'Nincs a keresésnek megfelelő ajánlat'}</h1>
             <ul className='calc__res-list'>
                 {!props.resultForFilters.isLoading ? props.loanResult.length ? loanList : null : skeletonList()}
             </ul>

@@ -97,10 +97,12 @@ const ContactForm = props => {
                     className='contact__error'>
                 </small>
             </div>
-            <button
-                className='calc__res-list__btn'
-                onClick={props.handleSubmit}>Küldés
-            </button>
+            <div className='contact__form-group'>
+                <button
+                    className='contact__btn'
+                    onClick={props.handleSubmit}>Küldés
+                </button>
+            </div>
         </form>
     )
 }

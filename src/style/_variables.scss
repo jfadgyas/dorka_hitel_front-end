@@ -1,19 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
 
-$inactiveBorder: hsla(199, 61%, 49%, 0.459);//#749199;
-$inactiveColor: hsla(199, 97%, 76%, 0.349);//#89d8fd79;//#9ad3d681;
+$inactiveBorder: hsla(199, 61%, 49%, 0.459);
+$inactiveColor: hsla(199, 97%, 76%, 0.349);
 $activeBorder: hsl(212, 79%, 43%);
 $activeColor: hsla(199, 98%, 62%, 0.5);
 $validBorder: hsl(151, 79%, 43%);
 $validColor: hsla(160, 93%, 62%, 0.5);
 $invalidBorder: hsl(0, 90%, 53%);
 $invalidColor: hsla(0, 100%, 70%, 0.5);
-$textColor: 0;
-$shadowGrey: 0;
+$textColor: hsl(0, 0%, 100%);
+$dateColor: hsl(15, 97%, 64%);
+$labelColor: hsl(0, 1%, 28%);
+$shadowGrey--card: hsl(0, 6%, 80%);
+$siteBackground: hsl(0, 0%, 100%);
+$menuBackground: hsl(209, 28%, 26%);
+$buttonShadow:
+    0px 2px 0px hsl(0, 0%, 50%),
+    0px 5px 8px hsl(0, 0%, 50%);
 
 :root{
     --calcBackground: hsl(199, 98%, 62%); //will be set from the react app
     --filterHeight: 0;
+    --progress: 910;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Barlow', sans-serif;
 }

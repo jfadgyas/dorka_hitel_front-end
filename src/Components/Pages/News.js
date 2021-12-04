@@ -11,7 +11,7 @@ const News = () => {
             {
                 startDate: Date.now(),
                 endDate: Date.now(),
-                head: 'elso hir',
+                head: 'elso hir, ami tul hosszu',
                 desc: 'Nunc dignissim sed odio in blandit. Donec quis est id libero fermentum eleifend vel in quam. Donec consequat bibendum feugiat. Donec et lobortis diam, vulputate tincidunt tellus. Integer id arcu vel mi volutpat tincidunt sed in felis. Duis est leo, porttitor ut pharetra in, tincidunt a tellus.'
             },
             {
@@ -24,8 +24,7 @@ const News = () => {
     }, [])
 
     const newsList = news.map((item, index) => 
-        <li key={index} className='news__item'>
-            
+        <li key={index} className='news__item'>            
             <h3 className='news__label'>{item.head}</h3>
             <small className='news__date'>
                 <span className='news__icon news__icon--clock'></span>
