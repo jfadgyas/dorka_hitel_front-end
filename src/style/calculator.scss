@@ -291,8 +291,9 @@
             white-space: pre-line;
             cursor: pointer;
             &--angled{
-                writing-mode: sideways-lr;
-                text-orientation: sideways;
+                writing-mode: vertical-lr;//sideways-lr;
+                text-orientation: upright;//sideways;
+                letter-spacing: -3px;
             }
             &--hidden{
                 display: none;

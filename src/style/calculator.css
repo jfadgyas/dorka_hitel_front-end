@@ -1028,10 +1028,11 @@ body {
 }
 
 .csok__table__head--angled {
-  -webkit-writing-mode: sideways-lr;
-      -ms-writing-mode: sideways-lr;
-          writing-mode: sideways-lr;
-  text-orientation: sideways;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  text-orientation: upright;
+  letter-spacing: -3px;
 }
 
 .csok__table__head--hidden {

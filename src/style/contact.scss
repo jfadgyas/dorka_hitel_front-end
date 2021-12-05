@@ -10,8 +10,8 @@
     &__list-item{
         display: flex;
         align-items: flex-start;
-        padding-left: 0.5em; //translate miatt kell
-        transform: translateX(-1.5em); //-1em
+        padding-left: 1em; // get rid of the list markers
+        transform: translateX(-2em); // get rid of the list markers
         color: $labelColor;
         text-decoration: none;
         text-transform: uppercase;
