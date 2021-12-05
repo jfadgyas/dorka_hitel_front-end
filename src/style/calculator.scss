@@ -277,7 +277,7 @@
         border-spacing: 0;
         border-collapse: collapse;
         font-size: 12px;
-        text-align: center;
+        // text-align: center;
         &__row,
         &__cols{
             transition: 300ms;            
@@ -288,7 +288,7 @@
         &__head{
             border: 1px solid $inactiveBorder;
             font-size: 10px;
-            white-space: pre-line;
+            // white-space: pre-line;
             cursor: pointer;
             &--angled{
                 writing-mode: vertical-lr;//sideways-lr;
