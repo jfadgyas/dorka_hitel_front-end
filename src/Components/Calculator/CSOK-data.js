@@ -235,7 +235,7 @@ export const csokData = {
                         className: 'csok__table__head',
                         id: '',
                         rowSpan: '2',
-                        text: <span className='csok__table__head--angled'>Gyerek</span>
+                        text: <div className='csok__table__head--angled'>Gyerek</div>
                     },
                     {
                         className: 'csok__table__head',
