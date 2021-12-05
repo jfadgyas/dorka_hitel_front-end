@@ -293,7 +293,7 @@
             &--angled{
                 writing-mode: vertical-lr;//sideways-lr;
                 // text-orientation: upright;//sideways;
-                transform: rotateZ(-180deg);
+                transform: rotateZ(-180deg) translateX(2px);
             }
             &--hidden{
                 display: none;

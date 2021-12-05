@@ -1031,8 +1031,8 @@ body {
   -webkit-writing-mode: vertical-lr;
       -ms-writing-mode: tb-lr;
           writing-mode: vertical-lr;
-  -webkit-transform: rotateZ(-180deg);
-          transform: rotateZ(-180deg);
+  -webkit-transform: rotateZ(-180deg) translateX(2px);
+          transform: rotateZ(-180deg) translateX(2px);
 }
 
 .csok__table__head--hidden {
