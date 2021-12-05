@@ -232,10 +232,10 @@ export const csokData = {
             {
                 row0: [
                     {
-                        className: 'csok__table__head csok__table__head--angled',
+                        className: 'csok__table__head',
                         id: '',
                         rowSpan: '2',
-                        text: 'Gyerek'
+                        text: <span className='csok__table__head--angled'>Gyerek</span>
                     },
                     {
                         className: 'csok__table__head',
