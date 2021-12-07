@@ -141,8 +141,7 @@ body {
 
 .calc__req__form__inputs:-webkit-autofill {
   border: none;
-  background-color: transparent;
-  -webkit-text-fill-color: crimson;
+  background-color: red;
 }
 
 .calc__req-wrapper {
