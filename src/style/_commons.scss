@@ -96,6 +96,7 @@
     // -moz-appearance: textfield;
     &:-webkit-autofill{
         border: none;
-        background: transparent;
+        background-color: transparent;
+        -webkit-text-fill-color: crimson;
     }
 }
