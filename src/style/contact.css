@@ -115,7 +115,7 @@ body {
 
 .contact__input:-webkit-autofill {
   border: none;
-  background-color: red;
+  -webkit-box-shadow: none;
 }
 
 .contact {
