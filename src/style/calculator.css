@@ -141,7 +141,7 @@ body {
 
 .calc__req__form__inputs:-webkit-autofill {
   border: none;
-  -webkit-box-shadow: none;
+  -webkit-box-shadow: 1px 1px 10px red inset;
 }
 
 .calc__req-wrapper {

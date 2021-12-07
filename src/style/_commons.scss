@@ -97,6 +97,6 @@
     &:-webkit-autofill{
         border: none;
         // background-color: transparent;
-        -webkit-box-shadow: none;
+        -webkit-box-shadow: 1px 1px 10px red inset;
     }
 }
