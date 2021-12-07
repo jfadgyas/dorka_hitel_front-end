@@ -473,10 +473,10 @@ export const PageDetails = [
                 },
                 icon: '',
                 list: [
-                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--balance'></span>Adószám: </div>,
-                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--inventory2'></span>Cégjegyzékszám: </div>,
-                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--location'></span>Telephely: </div>,
-                    <div className='contact__list-item'><span className='contact__icon contact__icon--small page__icon--person'></span>Cégnév: </div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--balance'></span>Adószám: 1-22334455-82</div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--inventory2'></span>Cégjegyzékszám: 2345998715</div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--location'></span>Telephely: Madarász Viktor u. 19, 1131 Budapest</div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small page__icon--person'></span>Cégnév: Tary Dóra E.V.</div>,
                 ]
             },
             {
