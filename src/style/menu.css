@@ -16,6 +16,7 @@ body {
 .menu {
   position: fixed;
   bottom: 0;
+  bottom: env(safe-area-inset-bottom);
   width: 100%;
   background: #304355;
   z-index: 10;

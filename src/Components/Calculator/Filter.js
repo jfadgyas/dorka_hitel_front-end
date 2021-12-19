@@ -73,9 +73,9 @@ const Filter = props => {
                     </div>
                 }            
                 <div className='filter__groups'>
-                    <h3 className='filter__title'>Maximum havi törlesztő: {props.filters.maxMonthlyPay} Ft</h3>
+                    <h3 className='filter__title'>Maximum havi törlesztő: {props.filters.maxMonthlyPay.toLocaleString('hu-HU')} Ft</h3>
                     <div className='filter__minmax-wrapper'>
-                        <small className='filter__minmax'>{props.resultForFilters.data[0].monthlyPay}</small>
+                        <small className='filter__minmax'>{props.resultForFilters.data[0].monthlyPay.toLocaleString('hu-HU')}</small>
                         <input
                             className='filter__input filter__input--payment'
                             name='maxMonthlyPay'
@@ -87,7 +87,7 @@ const Filter = props => {
                             onChange={props.handleFilter}
                             >
                         </input>
-                        <small className='filter__minmax'>{props.resultForFilters.data[props.resultForFilters.data.length-1].monthlyPay}</small>
+                        <small className='filter__minmax'>{props.resultForFilters.data[props.resultForFilters.data.length-1].monthlyPay.toLocaleString('hu-HU')}</small>
                     </div>
                 </div>
             </div>                         

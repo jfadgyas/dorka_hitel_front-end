@@ -1,5 +1,5 @@
 // Requests
-import React, {useState, useEffect} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import CSOK from './CSOK'
 import CalcRequest from './Calc-Request'
 import CalcResult from './Calc-Result'
@@ -33,14 +33,14 @@ const Calc = (props) => {
             minYear: 5,
             maxYear: 20
         },
-        // {
-        //     loanType: 'csok',
-        //     hunName: 'CSOK',
-        //     minLoan: 200000,
-        //     maxLoan: 8000000,
-        //     minYear: 1,
-        //     maxYear: 8
-        // },
+        {
+            loanType: 'csok',
+            hunName: 'CSOK',
+            minLoan: 200000,
+            maxLoan: 8000000,
+            minYear: 1,
+            maxYear: 8
+        },
     ]
     const [loanRequest, setLoanRequest] = useState({
         loanType: props.loanType,
@@ -59,6 +59,49 @@ const Calc = (props) => {
         maxMonthlyPay: '',
         showFilters: false,
     })
+
+    // Input fields
+    const inputs = [
+        {
+            labelText: 'Havi nettó jövedelem',
+            icon: 'calc__req__form__icons calc__req__form__icons--cash',
+            className: 'calc__req__form__inputs',
+            id: 'salary',
+            name: 'salary',
+            type: 'tel',
+            placeholder: 'fizetes',
+            min: 0,
+            max: 999999999,
+            required: true
+        },
+        {
+            labelText: 'Hitelösszeg',
+            icon: 'calc__req__form__icons calc__req__form__icons--credit',
+            className: 'calc__req__form__inputs',
+            id: 'loan',
+            name: 'loan',
+            type: 'tel',
+            placeholder: 'hitel',
+            min: loanRequest.loanType ? loanConditions.find(item => item.loanType === loanRequest.loanType).minLoan : 0,
+            max: loanRequest.loanType ? loanConditions.find(item => item.loanType === loanRequest.loanType).maxLoan : 999999999,
+            required: true
+        },
+        {
+            labelText: 'Futamidő',
+            icon: 'calc__req__form__icons calc__req__form__icons--calendar',
+            className: 'calc__req__form__inputs',
+            id: 'year',
+            name: 'year',
+            type: 'tel',
+            placeholder: 'futamido',
+            min: loanRequest.loanType ? loanConditions.find(item => item.loanType === loanRequest.loanType).minYear : 0,
+            max: loanRequest.loanType ? loanConditions.find(item => item.loanType === loanRequest.loanType).maxYear : 99,
+            required: true
+        }
+    ]
+    
+    // Define refs for the input fields
+    const inputRef = useRef([])
     
     useEffect(() => {
         // Switch the background color according to the loan type (tiles)
@@ -85,18 +128,18 @@ const Calc = (props) => {
         document.documentElement.style.setProperty('--calcBackground', color)
     }, [loanRequest.loanType])
 
-    // Handle typing in the request form
-    const handleChange = e => {
-        e.preventDefault()
-        // If keypress=enter next input? keyup event
-        // Should use the value, but that's a string and I need a number
-        // Check if it's a number, if not => error
-        const {type, name, value, valueAsNumber, validity} = e.target        
-        if (validity.badInput || validity.typeMismatch){
-            return setErrorMsg(name, 'Csak számokat írjon!')
+    // Handle typing in the request form. On enter move to the next field, otherwise mask the input and set state
+    const handleKey = (e, index) => {
+        if (e.key === 'Enter'){
+            index === inputRef.current.length-1 ? handleSubmit(e) : inputRef.current[index+1].focus()
+            return
         }
-        type === 'select-one' ? setLoanRequest({...loanRequest, [name]: value, isValid: false}) : setLoanRequest({...loanRequest, [name]: valueAsNumber, isValid: false})
+        const {type, name, value} = e.target
+        if (type === 'select-one') return setLoanRequest({...loanRequest, [name]: value, isValid: false})
+        const numValue = parseInt(value.replaceAll(/\s+/g, ''))
+        isNaN(numValue) ? setLoanRequest({...loanRequest, [name]: '', isValid: false}) : setLoanRequest({...loanRequest, [name]: numValue.toLocaleString('hu-HU'), isValid: false})
     }
+    
 
     // Handle filter
     const handleFilter = e => {
@@ -139,27 +182,65 @@ const Calc = (props) => {
     }
 
     // Validating request form
+    // Using e.target as field, or e as field if we pass it from submit
     const validate = e => {
+        const field = e.target || e
+        // No value
+        if (field.validity.valueMissing) return setErrorMsg(field.name, `Ne hagyja üresen a ${field.labels[0].innerText.toLowerCase()} mezőt!`) 
+        // Characters in number field
+        if (field.validity.badInput || field.validity.typeMismatch) return setErrorMsg(field.name, 'Csak számokat írjon!')
+        // Value not in range
+        const fieldNumber = parseInt(field.value.replaceAll(/\s+/g, ''))
+        if (fieldNumber < parseInt(field.min)) return setErrorMsg(field.name, `${field.labels[0].innerText} minimum ${parseInt(field.min).toLocaleString('hu-HU')} lehet!`)
+        if (fieldNumber > parseInt(field.max)) return setErrorMsg(field.name, `${field.labels[0].innerText} maximum ${parseInt(field.max).toLocaleString('hu-HU')} lehet!`)
+        // return the validation result (true only if valid)
+        setErrorMsg(field.name, '')
+        return true
+    }
+
+    // Validating request form
+    // const validate = e => {
+    //     e.preventDefault()
+    //     // Check if fields are in the right format, and in range
+    //     let formInputs = []
+    //     e.type === 'blur' ? formInputs = [e.target] : formInputs = Array.from(document.forms['requestForm'].elements).filter(item => item.type !== 'submit')
+    //     formInputs.map(item => {
+    //         if (item.validity.valueMissing){
+    //             return setErrorMsg(item.name, `Ne hagyja üresen a ${item.labels[0].innerText.toLowerCase()} mezőt!`)
+    //         }
+    //         if (item.validity.badInput || item.validity.typeMismatch){
+    //             return setErrorMsg(item.name, 'Csak számokat írjon!')
+    //         }
+    //         if (item.validity.rangeUnderflow){
+    //             return setErrorMsg(item.name, `${item.labels[0].innerText} minimum ${item.min} lehet!`)
+    //         }
+    //         if (item.validity.rangeOverflow){
+    //             return setErrorMsg(item.name, `${item.labels[0].innerText} maximum ${item.max} lehet!`)
+    //         }
+    //         return setErrorMsg(item.name, '')
+    //     })
+    //     if (e.type === 'click' && document.forms.requestForm.checkValidity()){
+    //         // Reset results, filters, set valid to show loading animation, post the query
+    //         setLoanResult({
+    //             data: [],
+    //             isLoading: true
+    //         })
+    //         setFilters({
+    //             bank: [],
+    //             ratePeriod: [],
+    //             maxMonthlyPay: '',
+    //             showFilters: false
+    //         })
+    //         setLoanRequest({...loanRequest, isValid: true})
+    //         postLoanRequest()            
+    //     }
+    // }
+
+    const handleSubmit = e => {
         e.preventDefault()
-        // Check if fields are in the right format, and in range
-        let formInputs = []
-        e.type === 'blur' ? formInputs = [e.target] : formInputs = Array.from(document.forms['requestForm'].elements).filter(item => item.type !== 'submit')
-        formInputs.map(item => {
-            if (item.validity.valueMissing){
-                return setErrorMsg(item.name, `Ne hagyja üresen a ${item.labels[0].innerText.toLowerCase()} mezőt!`)
-            }
-            if (item.validity.badInput || item.validity.typeMismatch){
-                return setErrorMsg(item.name, 'Csak számokat írjon!')
-            }
-            if (item.validity.rangeUnderflow){
-                return setErrorMsg(item.name, `${item.labels[0].innerText} minimum ${item.min} lehet!`)
-            }
-            if (item.validity.rangeOverflow){
-                return setErrorMsg(item.name, `${item.labels[0].innerText} maximum ${item.max} lehet!`)
-            }
-            return setErrorMsg(item.name, '')
-        })
-        if (e.type === 'click' && document.forms.requestForm.checkValidity()){
+        const formInputs = Array.from(document.forms['requestForm'].elements).filter(item => item.type !== 'button')
+        const isValidField = formInputs.map(item => validate(item))
+        if (isValidField.every(item => item === true)){
             // Reset results, filters, set valid to show loading animation, post the query
             setLoanResult({
                 data: [],
@@ -172,7 +253,7 @@ const Calc = (props) => {
                 showFilters: false
             })
             setLoanRequest({...loanRequest, isValid: true})
-            postLoanRequest()            
+            postLoanRequest()
         }
     }
 
@@ -218,8 +299,11 @@ const Calc = (props) => {
             <CalcRequest
                 loanConditions={loanConditions.find(item => item.loanType === loanRequest.loanType)}
                 loanRequest={loanRequest}
-                handleChange={handleChange}
-                handleSubmit={validate}
+                inputs={inputs}
+                inputRef={inputRef}
+                handleKey={handleKey}
+                validate={validate}
+                handleSubmit={handleSubmit}
                 />}
             {loanRequest.isValid ? <CalcResult loanResult={filterResult()} handleFilter={handleFilter} filters={filters} resultForFilters={loanResult}/> : null}
         </section>

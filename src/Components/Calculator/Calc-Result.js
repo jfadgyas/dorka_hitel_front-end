@@ -38,10 +38,7 @@ const CalcResult = (props) => {
 
     // Create list of results
     const loanList = props.loanResult.map(item =>
-        {
-            console.log(item.bank)
-        
-        return <li
+        <li
             className='calc__res-list__item'
             key={item._id}
             id={item._id}>
@@ -60,18 +57,17 @@ const CalcResult = (props) => {
                             <p className='calc__res-list__details'>Végig fix</p> : 
                             <p className='calc__res-list__details'>{item.ratePeriod} évig fix</p> : 
                     null}
-                    <p className='calc__res-list__details'>{item.monthlyPay} Ft</p>
+                    <p className='calc__res-list__details'>{item.monthlyPay.toLocaleString('hu-HU')} Ft</p>
                 </li>
                 <li className='calc__res-list__detail-wrapper'>
                     <h4 className='calc__res-list__details'>Teljes visszafizetés</h4>
-                    <p className='calc__res-list__details'>{item.fullPay} Ft</p>
+                    <p className='calc__res-list__details'>{item.fullPay.toLocaleString('hu-HU')} Ft</p>
                 </li>                
                 <li className='calc__res-list__detail-wrapper'>
                     <button className='calc__res-list__btn'>Részletek</button>
                 </li>
             </ul>
         </li>
-        }
     )
 
     return(
