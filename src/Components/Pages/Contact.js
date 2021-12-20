@@ -1,5 +1,5 @@
 // Requirements
-import React, {useState, useEffect} from "react"
+import React, {useState, useRef, useEffect} from "react"
 import ContactForm from "./ContactForm"
 import Progress from "./Progress"
 import ThankYou from "./ThankYou"
@@ -7,6 +7,7 @@ import '../../style/contact.css'
 
 const Contact = () => {
 
+    // States: message, progress helpers
     const [messageDetails, setMessageDetails] = useState({
         firstName: '',
         phone: '',
@@ -20,6 +21,49 @@ const Contact = () => {
         isPosting: false,
         status: 'failed'
     })
+
+    // Input fileds
+    const inputs = [
+        {
+            labelText: 'Név',
+            icon: 'contact__icon contact__icon--name',
+            className: 'contact__input',
+            id: 'firstName',
+            name: 'firstName',
+            type: 'text',
+            required: true,
+            placeholder: '',
+            pattern: /[\w\s]+/,
+            autofill: 'name'
+        },
+        {
+            labelText: 'Telefon',
+            icon: 'contact__icon contact__icon--phone',
+            className: 'contact__input',
+            id: 'phone',
+            name: 'phone',
+            type: 'text',
+            required: true,
+            placeholder: '',
+            pattern: /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
+            autofill: 'phone'
+        },
+        {
+            labelText: 'E-mail',
+            icon: 'contact__icon contact__icon--email',
+            className: 'contact__input',
+            id: 'email',
+            name: 'email',
+            type: 'text',
+            required: true,
+            placeholder: '',
+            pattern: /^((?!\.)[-\w_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/,
+            autofill: 'email'
+        },
+    ]
+
+    // Input refs
+    const inputRef = useRef([])
 
     // Progress circle animation
     useEffect(() => {
@@ -46,40 +90,41 @@ const Contact = () => {
     })
 
     // Handle keypress
-    const handleChange = e => {
+    // If enter pressed move to the next input field, otherwise set the state
+    const handleKey = (e, index) => {
+        if (e.key === 'Enter'){
+            index === inputRef.current.length-1 ? console.log('submit') : inputRef.current[index+1].focus()
+            return
+        }
         const {name, value} = e.target
         setMessageDetails({...messageDetails, [name]: value})
     }
 
-    // Validating contact form
+    // Handle submit
     const handleSubmit = e => {
         e.preventDefault()
-        // Check if fields are in the right format
-        let formInputs = []
-        e.type === 'blur' ? formInputs = [e.target] : formInputs = Array.from(document.forms['contactForm'].elements).filter(item => item.type !== 'submit')
-        formInputs.map(item => {
-            if (item.validity.valueMissing){
-                return setErrorMsg(item.name, `Ne hagyja üresen a ${item.labels[0].innerText.toLowerCase()} mezőt!`)
-            }
-            if (item.validity.patternMismatch){
-                return setErrorMsg(item.name, `Hibás ${item.labels[0].innerText.toLowerCase()} formátum!`)
-            }
-            return setErrorMsg(item.name, '')
-        })
-        if (e.type === 'click' && document.forms.contactForm.checkValidity()){
+        const formInputs = Array.from(document.forms['contactForm'].elements).filter(item => item.type !== 'button')
+        const isValidField = formInputs.map(item => validate(item))
+        if (isValidField.every(item => item === true)){
             // Show waiting screen, post message, wait for response, reset state?
             // Set posting to true, so useEffect will handle the progress screen
             setProgress({...progress, isPosting: true})
-            postMessage()            
-            // setMessageDetails({
-            //     firstName: '',
-            //     phone: '',
-            //     email: '',
-            //     message: '',
-            //     isNewMsg: true,
-            //     isDone: false
-            // })
+            postMessage()
         }
+    }
+
+    // Validating contact form
+    // Using e.target as field, or e as field if we pass it from submit
+    // Check if the field is in the rigtht format, return the result
+    const validate = e => {
+        const field = e.target || e
+        // Value missing
+        if (field.validity.valueMissing) return setErrorMsg(field.name, `Ne hagyja üresen a ${field.labels[0].innerText.toLowerCase()} mezőt!`)
+        // Pattern mismatch
+        if (field.validity.patternMismatch) return setErrorMsg(field.name, `Hibás ${field.labels[0].innerText.toLowerCase()} formátum!`)
+        // No errors
+        setErrorMsg(field.name, '')
+        return true
     }
 
     // Set error message for form elements
@@ -132,7 +177,10 @@ const Contact = () => {
         <section className='contact'>
             <ContactForm
                 messageDetails={messageDetails}
-                handleChange={handleChange}
+                inputs={inputs}
+                inputRef={inputRef}
+                handleKey={handleKey}
+                validate={validate}
                 handleSubmit={handleSubmit}
             />
             {progress.isPosting && <Progress progress={progress}/>}

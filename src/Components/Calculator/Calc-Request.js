@@ -10,7 +10,7 @@ const CalcRequest = props => {
         <div key={index} className='calc__req__form__groups'>
             <label
                 className='calc__req__form__labels'
-                htmlFor={item.id}>{item.labelText}
+                htmlFor={item.id}>{item.labelText.label}
             </label>
             <div
                 id={`${item.id}Group`}
@@ -31,7 +31,7 @@ const CalcRequest = props => {
                     onKeyUp={e => props.handleKey(e, index)}
                     onBlur={props.validate}
                 />
-                <span className='calc__req__form__icons calc__req__form__icons--text'>Ft</span>
+                <span className='calc__req__form__icons calc__req__form__icons--text'>{item.labelText.quantity}</span>
             </div>
             <small
                 id={`${item.id}Error`}

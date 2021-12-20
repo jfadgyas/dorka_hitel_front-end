@@ -63,7 +63,11 @@ const Calc = (props) => {
     // Input fields
     const inputs = [
         {
-            labelText: 'Havi nettó jövedelem',
+            labelText: 
+                {
+                    label: 'Havi nettó jövedelem',
+                    quantity: 'Ft'
+                },
             icon: 'calc__req__form__icons calc__req__form__icons--cash',
             className: 'calc__req__form__inputs',
             id: 'salary',
@@ -75,7 +79,11 @@ const Calc = (props) => {
             required: true
         },
         {
-            labelText: 'Hitelösszeg',
+            labelText: 
+                {
+                    label: 'Hitelösszeg',
+                    quantity: 'Ft'
+                },
             icon: 'calc__req__form__icons calc__req__form__icons--credit',
             className: 'calc__req__form__inputs',
             id: 'loan',
@@ -87,7 +95,11 @@ const Calc = (props) => {
             required: true
         },
         {
-            labelText: 'Futamidő',
+            labelText: 
+                {
+                    label: 'Futamidő',
+                    quantity: 'év'
+                },
             icon: 'calc__req__form__icons calc__req__form__icons--calendar',
             className: 'calc__req__form__inputs',
             id: 'year',
@@ -139,7 +151,6 @@ const Calc = (props) => {
         const numValue = parseInt(value.replaceAll(/\s+/g, ''))
         isNaN(numValue) ? setLoanRequest({...loanRequest, [name]: '', isValid: false}) : setLoanRequest({...loanRequest, [name]: numValue.toLocaleString('hu-HU'), isValid: false})
     }
-    
 
     // Handle filter
     const handleFilter = e => {
