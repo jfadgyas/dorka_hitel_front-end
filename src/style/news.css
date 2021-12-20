@@ -41,6 +41,12 @@ body {
   color: #484747;
 }
 
+@-webkit-keyframes autofill {
+  0%, 100% {
+    background: transparent;
+  }
+}
+
 .news__list {
   padding: 0;
   list-style: none;

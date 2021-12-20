@@ -95,8 +95,12 @@
     opacity: 0.7;
     // -moz-appearance: textfield;
     &:-webkit-autofill{
-        border: none;
-        // background-color: transparent;
-        -webkit-box-shadow: 1px 1px 10px red inset;
+        animation: autofill 1s both;
+    }
+}
+
+@-webkit-keyframes autofill{
+    0%, 100%{
+        background: transparent;
     }
 }

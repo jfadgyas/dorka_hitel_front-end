@@ -140,8 +140,14 @@ body {
 }
 
 .calc__req__form__inputs:-webkit-autofill {
-  border: none;
-  -webkit-box-shadow: 1px 1px 10px red inset;
+  -webkit-animation: autofill 1s both;
+          animation: autofill 1s both;
+}
+
+@-webkit-keyframes autofill {
+  0%, 100% {
+    background: transparent;
+  }
 }
 
 .calc__req-wrapper {
