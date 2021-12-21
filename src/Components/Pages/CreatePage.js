@@ -9,6 +9,7 @@ import '../../style/pages.css'
 const CreatePage = ({match}) => {
     // Need to translate hungarian words        
     const dictionary = {
+        'rolunk': 'about',
         'hirek': 'news',
         'kapcsolat': 'contact',
         'szemelyi-kolcson': 'personal',
@@ -46,7 +47,7 @@ const CreatePage = ({match}) => {
             <section className={isLoanPage ? 'page' : 'page--noMargin'}>
                 {pageNodes}
                 {currentPage === 'contact' && <Contact />}
-                {currentPage === 'news' && <News />}          
+                {currentPage === 'news' && <News />}         
             </section>
         </article>
     )

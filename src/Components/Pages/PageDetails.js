@@ -462,8 +462,8 @@ export const PageDetails = [
                 list: [
                     <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--clock'></span>H-P: 8:00-17:00</div>,
                     <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--location'></span>Budapest</div>,
-                    <a className='contact__list-item' href='mailto:d.tary@gmail.com'><span className='contact__icon contact__icon--small contact__icon--email'></span>d.tary@gmail.com</a>,
-                    <a className='contact__list-item' href='tel:+361234567'><span className='contact__icon contact__icon--small page__icon--phone'></span>+361234567</a>,
+                    <a className='contact__list-item' href='mailto:d.tary@gmail.com'><span className='contact__icon contact__icon--small contact__icon--email'></span>d.tary9@gmail.com</a>,
+                    <a className='contact__list-item' href='tel:+361234567'><span className='contact__icon contact__icon--small page__icon--phone'></span>+36303434708</a>,
                 ]
             },
             {
@@ -473,9 +473,9 @@ export const PageDetails = [
                 },
                 icon: '',
                 list: [
-                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--balance'></span>Adószám: 1-22334455-82</div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--balance'></span>Adószám: 56829051-1-41</div>,
                     <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--inventory2'></span>Cégjegyzékszám: 2345998715</div>,
-                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--location'></span>Telephely: Madarász Viktor u. 19, 1131 Budapest</div>,
+                    <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--location'></span>Telephely: Jéggyár utca 13, 1134 Budapest</div>,
                     <div className='contact__list-item'><span className='contact__icon contact__icon--small page__icon--person'></span>Cégnév: Tary Dóra E.V.</div>,
                 ]
             },
@@ -527,6 +527,45 @@ export const PageDetails = [
                 desc: {
                     class: 'page__desc',
                     text: 'Aktuális pénzügyi információk'
+                }
+            },
+        ]
+    },
+    {
+        loanType: 'about',
+        link: '/rolunk',
+        details: [
+            {
+                header: {
+                    class: 'page__header',
+                    text: 'ISMERJ MEG MINKET!'
+                },
+                icon: '',
+                desc: {
+                    class: 'page__desc',
+                    text: 'Az oldal célja, hogy segítsen eligazodni a hitelek között. A hitelfelvétel előtt díjmentesen próbálunk segíteni a gördülékenyebb és kényelmesebb hitelügyintézesben, ami sokszor már online is lehetséges. Az igényfelméréstől a folyósításon át az adminisztrációig az egész folyamatban segítünk eligazodni, vagy pedig megcsináljuk helyetted! Különböző és egyedi kedvezményekkel tudjuk segíteni az ügyletet, pl. kamatkedvezmény, előtörlesztési lehetőség, stb.'
+                }
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: ''
+                },
+                icon: '',
+                desc: {
+                    class: 'page__desc',
+                    text: 'A piac ajánlatait hasonlítjuk össze független szakértőként, ebből a legkedvezőbb ajánlatot mutatjuk be számodra, tájékoztatva az előnyeiről és hátrányairól, ez alapján segítünk a döntésben. Közérthető nyelvezeten magyarázzuk el, nincsenek bonyolult szövegek apró betűs részek! A piacon lévő sokéves tapasztalat és kapcsolatok által könyebb és gördülékenyebb ügyintézésre számíthatsz. Számíthatsz a gyorsaságunkra és kedves, precíz ügyintézőink segítségére, akik naprakész információkkal rendelkeznek a folyamatos képzések által.'
+                }
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: ''
+                },
+                icon: '',
+                desc: {
+                    class: 'page__desc',
+                    text: 'Rugalmasan tudjuk kezelni ügyeid, megtaláljuk a lehetőségeket, a megfelelő pénzintézetet. Szinte az összes bankkal kapcsolatban állunk így a tejes piacról tudunk válogatni, hogy kiválasszuk számodra a legmegfelelőbb ajánlatot. Nem csak a hitel kapcsán tudunk segítséget nyújtani, hanem az eközben felmerülő és hozzá kapcsolódó termékekben is,  pl. lakásbiztosítás, életbiztosítás, hitelfedezeti biztosítás, megtakarítás, lakástakarékpénztár, számlanyitás, ezáltal egy kézbe fogjuk pénzügyeidet, nem kell külön emberekkel tartanod a kapcsolatot! Folyamatosan tudsz hozzánk fordulni a felmerülő kérdésekkel, nem csak a hitel előtt, de utána is!'
                 }
             },
         ]
