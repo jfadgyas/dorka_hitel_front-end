@@ -1,12 +1,14 @@
 // Requirements
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import Calc from '../Calculator/Calculator'
 import Contact from './Contact'
 import News from './News'
 import { PageDetails } from './PageDetails'
 import '../../style/pages.css'
 
-const CreatePage = ({match}) => {
+const CreatePage = () => {
+    
     // Need to translate hungarian words        
     const dictionary = {
         'rolunk': 'about',
@@ -18,13 +20,13 @@ const CreatePage = ({match}) => {
         'baba': 'baby',
         'csok': 'csok'
     }
-    const currentPage = dictionary[match.params.page]
+    const currentPage = dictionary[useParams().page]
     const isLoanPage = currentPage === 'personal' || currentPage === 'home' || currentPage === 'auto' ||currentPage === 'baby' || currentPage === 'csok' ? true : false
     // Creating page text
     const pageNodes = PageDetails
         .find(item => item.loanType === currentPage).details
         .map((item, index) => 
-            <div key={index} className='page__container'>
+            <div key={index} id={`info${index}`} className='page__container'>
                 {item.header && <h1 className={item.header.class}>{item.header.text}</h1>}
                 {item.icon && <span className={`page__icon page__icon--${item.icon}`}></span>}                
                 {item.desc && <p className={item.desc.class}>{item.desc.text}</p>}

@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Navbar from './Components/Menu'
 import Main from './Components/Main'
 import CreatePage from './Components/Pages/CreatePage'
@@ -12,10 +12,10 @@ function App() {
       <Router>
         <ScrollTo />
         <Navbar />
-        <Switch>
-          <Route exact path='/' component={Main}/>          
-          <Route exact path='/:page' component={CreatePage}/>
-        </Switch>
+        <Routes>
+          <Route exact path='/' element={<Main />}/>          
+          <Route exact path='/:page' element={<CreatePage />}/>
+        </Routes>
         <Footer />
       </Router>      
     </main>

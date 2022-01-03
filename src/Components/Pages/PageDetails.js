@@ -450,7 +450,7 @@ export const PageDetails = [
                 icon: 'contact',
                 desc: {
                     class: 'page__desc',
-                    text: 'Örömmel segítünk, ha segítségre, tanácsra van szüksége. Az alábbi űrlap kitöltése után munkatársunk hamarosan felkeresi egy megfelelő időpont egyeztetése céljából. Amennyiben közvetlenül szeretne kapcsolatba lépni velünk, használja további elérhetőségeinket!'
+                    text: 'Örömmel segítünk, ha segítségre, tanácsra van szükséged. Az alábbi űrlap kitöltése után munkatársunk hamarosan felkeres egy megfelelő időpont egyeztetése céljából. Amennyiben közvetlenül szeretnél kapcsolatba lépni velünk, használd további elérhetőségeinket!'
                 }
             },
             {
@@ -462,8 +462,8 @@ export const PageDetails = [
                 list: [
                     <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--clock'></span>H-P: 8:00-17:00</div>,
                     <div className='contact__list-item'><span className='contact__icon contact__icon--small contact__icon--location'></span>Budapest</div>,
-                    <a className='contact__list-item' href='mailto:d.tary@gmail.com'><span className='contact__icon contact__icon--small contact__icon--email'></span>d.tary9@gmail.com</a>,
-                    <a className='contact__list-item' href='tel:+361234567'><span className='contact__icon contact__icon--small page__icon--phone'></span>+36303434708</a>,
+                    <a className='contact__list-item' href='mailto:d.tary9@gmail.com'><span className='contact__icon contact__icon--small contact__icon--email'></span>d.tary9@gmail.com</a>,
+                    <a className='contact__list-item' href='tel:+36303434708'><span className='contact__icon contact__icon--small page__icon--phone'></span>+36303434708</a>,
                 ]
             },
             {
@@ -479,17 +479,17 @@ export const PageDetails = [
                     <div className='contact__list-item'><span className='contact__icon contact__icon--small page__icon--person'></span>Cégnév: Tary Dóra E.V.</div>,
                 ]
             },
-            {
-                header: {
-                    class: 'page__header',
-                    text: 'Közösségi média'
-                },
-                icon: '',
-                desc: {
-                    class: 'page__desc',
-                    text: 'fb insta linkedin'
-                }
-            },
+            // {
+            //     header: {
+            //         class: 'page__header',
+            //         text: 'Közösségi média'
+            //     },
+            //     icon: '',
+            //     desc: {
+            //         class: 'page__desc',
+            //         text: 'fb insta linkedin'
+            //     }
+            // },
             // {
             //     header: {
             //         class: 'page__header',
@@ -538,7 +538,18 @@ export const PageDetails = [
             {
                 header: {
                     class: 'page__header',
-                    text: 'ISMERJ MEG MINKET!'
+                    text: 'RÓLUNK'
+                },
+                icon: '',
+                desc: {
+                    class: 'page__desc',
+                    text: 'Ismerj meg minket!'
+                }
+            },
+            {
+                header: {
+                    class: 'page__header',
+                    text: ''
                 },
                 icon: '',
                 desc: {
@@ -554,7 +565,7 @@ export const PageDetails = [
                 icon: '',
                 desc: {
                     class: 'page__desc',
-                    text: 'A piac ajánlatait hasonlítjuk össze független szakértőként, ebből a legkedvezőbb ajánlatot mutatjuk be számodra, tájékoztatva az előnyeiről és hátrányairól, ez alapján segítünk a döntésben. Közérthető nyelvezeten magyarázzuk el, nincsenek bonyolult szövegek apró betűs részek! A piacon lévő sokéves tapasztalat és kapcsolatok által könyebb és gördülékenyebb ügyintézésre számíthatsz. Számíthatsz a gyorsaságunkra és kedves, precíz ügyintézőink segítségére, akik naprakész információkkal rendelkeznek a folyamatos képzések által.'
+                    text: 'A piac ajánlatait hasonlítjuk össze független szakértőként, ebből a legkedvezőbb ajánlatot mutatjuk be számodra, tájékoztatva az előnyeiről és hátrányairól, ez alapján segítünk a döntésben. Közérthető nyelvezeten magyarázzuk el, nincsenek bonyolult szövegek, apró betűs részek! A piacon lévő sokéves tapasztalat és kapcsolatok által könyebb és gördülékenyebb ügyintézésre számíthatsz. Számíthatsz a gyorsaságunkra és kedves, precíz ügyintézőink segítségére, akik naprakész információkkal rendelkeznek a folyamatos képzések által.'
                 }
             },
             {

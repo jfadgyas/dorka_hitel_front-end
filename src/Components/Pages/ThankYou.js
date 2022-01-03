@@ -6,10 +6,10 @@ const ThankYou = props => {
     // Text for creating the page
     const resultText = {
         success: {
-            head: 'Köszönjük az üzenetét!',
-            desc: 'Munkatársunk hamarosan felkeresi Önt!',
+            head: 'Köszönjük az üzenetet!',
+            desc: 'Munkatársunk hamarosan felkeres!',
             icon: 'success',
-            continueText: 'visszatérhet a főoldalra, vagy bezárhatja az oldalt',
+            continueText: 'visszatérhetsz a főoldalra, vagy bezárhatod az oldalt',
             link: '/',
             buttonText: 'Kezdőlap'
         },
@@ -17,7 +17,7 @@ const ThankYou = props => {
             head: 'Hiba történt az üzenetküldéskor!',
             desc: 'Sajnos nem sikerült elküldeni az üzenetet',
             icon: 'failed',
-            continueText: 'térjen vissza az űrlaphoz, és próbálja meg újra!',
+            continueText: 'térj vissza az űrlaphoz, és próbáld meg újra!',
             link: '#',
             buttonText: 'Vissza'
         },

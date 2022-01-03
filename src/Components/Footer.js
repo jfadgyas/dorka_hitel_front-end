@@ -14,7 +14,7 @@ const Footer = () => {
                 <li 
                     key={index}
                     className='footer__items'>
-                    <Link to={item.link} className='footer__links'>
+                    <Link to={`${item.link}#info${index}`} className='footer__links'>
                         {headers.header.text}
                     </Link>
                 </li>

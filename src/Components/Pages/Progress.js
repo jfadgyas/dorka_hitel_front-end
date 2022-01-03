@@ -19,7 +19,7 @@ const Progress = props => {
                 <h1 className='progress__percent'>{props.progress.counter} %</h1>
                 <p>folyamatban</p>
             </div>
-            <h1>Még ne zárja be az ablakot!</h1>
+            <h1>Még ne zárd be az ablakot!</h1>
         </div>
     )
 }

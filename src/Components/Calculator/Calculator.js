@@ -145,6 +145,7 @@ const Calc = (props) => {
         if (e.key === 'Enter'){
             index === inputRef.current.length-1 ? handleSubmit(e) : inputRef.current[index+1].focus()
             return
+            //lehet egy sorba irni, megoldani, hogy az utlos blur is legyen
         }
         const {type, name, value} = e.target
         if (type === 'select-one') return setLoanRequest({...loanRequest, [name]: value, isValid: false})
@@ -209,44 +210,6 @@ const Calc = (props) => {
         return true
     }
 
-    // Validating request form
-    // const validate = e => {
-    //     e.preventDefault()
-    //     // Check if fields are in the right format, and in range
-    //     let formInputs = []
-    //     e.type === 'blur' ? formInputs = [e.target] : formInputs = Array.from(document.forms['requestForm'].elements).filter(item => item.type !== 'submit')
-    //     formInputs.map(item => {
-    //         if (item.validity.valueMissing){
-    //             return setErrorMsg(item.name, `Ne hagyja üresen a ${item.labels[0].innerText.toLowerCase()} mezőt!`)
-    //         }
-    //         if (item.validity.badInput || item.validity.typeMismatch){
-    //             return setErrorMsg(item.name, 'Csak számokat írjon!')
-    //         }
-    //         if (item.validity.rangeUnderflow){
-    //             return setErrorMsg(item.name, `${item.labels[0].innerText} minimum ${item.min} lehet!`)
-    //         }
-    //         if (item.validity.rangeOverflow){
-    //             return setErrorMsg(item.name, `${item.labels[0].innerText} maximum ${item.max} lehet!`)
-    //         }
-    //         return setErrorMsg(item.name, '')
-    //     })
-    //     if (e.type === 'click' && document.forms.requestForm.checkValidity()){
-    //         // Reset results, filters, set valid to show loading animation, post the query
-    //         setLoanResult({
-    //             data: [],
-    //             isLoading: true
-    //         })
-    //         setFilters({
-    //             bank: [],
-    //             ratePeriod: [],
-    //             maxMonthlyPay: '',
-    //             showFilters: false
-    //         })
-    //         setLoanRequest({...loanRequest, isValid: true})
-    //         postLoanRequest()            
-    //     }
-    // }
-
     const handleSubmit = e => {
         e.preventDefault()
         const formInputs = Array.from(document.forms['requestForm'].elements).filter(item => item.type !== 'button')
@@ -271,11 +234,11 @@ const Calc = (props) => {
     // Set error message for form elements
     const setErrorMsg = (input, msg) => {
         if (msg){
-            document.querySelector(`#${input}Group`).classList.remove('valid', 'active')
+            document.querySelector(`#${input}Group`).classList.remove('valid') //'active' class nincs mar
             document.querySelector(`#${input}Group`).classList.add('invalid')
         }
         else{
-            document.querySelector(`#${input}Group`).classList.remove('invalid', 'active')
+            document.querySelector(`#${input}Group`).classList.remove('invalid')
             document.querySelector(`#${input}Group`).classList.add('valid')
         }
         document.querySelector(`#${input}Error`).innerText = msg
@@ -283,7 +246,7 @@ const Calc = (props) => {
 
     // Posting the loan request, getting back the result
     const postLoanRequest = async () => {
-        const URL = `https://deeply-solstice-mastodon.glitch.me/${loanRequest.loanType}`
+        const URL = `https://infallible-elion-34e0db.netlify.app/${loanRequest.loanType}`//`https://deeply-solstice-mastodon.glitch.me/${loanRequest.loanType}`
         const options = {
             headers: {
                 'Content-Type': 'application/json'
@@ -316,7 +279,7 @@ const Calc = (props) => {
                 validate={validate}
                 handleSubmit={handleSubmit}
                 />}
-            {loanRequest.isValid ? <CalcResult loanResult={filterResult()} handleFilter={handleFilter} filters={filters} resultForFilters={loanResult}/> : null}
+            {loanRequest.isValid ? <CalcResult loanRequest={loanRequest} loanResult={filterResult()} handleFilter={handleFilter} filters={filters} resultForFilters={loanResult}/> : null}
         </section>
     )
 }

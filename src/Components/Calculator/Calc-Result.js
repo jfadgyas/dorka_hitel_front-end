@@ -1,9 +1,19 @@
 // Requests
-import React from 'react'
+import React, {useState} from 'react'
 import { Banks } from './Banks'
+import CalcResDetails from './CalcResDetails'
 import Filter from './Filter'
 
-const CalcResult = (props) => {
+const CalcResult = props => {
+    
+    // State for details on the result
+    const [details, setDetails] = useState([])
+
+    // Clicking the details button passes the id of the result-item. If item.id=details => show details
+    const handleClick = id => {
+        setDetails(id)
+    }
+
     // Create skeleton loading (fake) results
     const skeletonList = () => {
         let fakeResults = []
@@ -64,9 +74,12 @@ const CalcResult = (props) => {
                     <p className='calc__res-list__details'>{item.fullPay.toLocaleString('hu-HU')} Ft</p>
                 </li>                
                 <li className='calc__res-list__detail-wrapper'>
-                    <button className='calc__res-list__btn'>Részletek</button>
+                    <button
+                        className='calc__res-list__btn'
+                        onClick={() => handleClick(item._id)}>Részletek</button>
                 </li>
             </ul>
+            {details === item._id && <CalcResDetails detailItem={item} bank={item.bank} loanRequest={props.loanRequest}/>}
         </li>
     )
 
