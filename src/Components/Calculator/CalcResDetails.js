@@ -5,7 +5,7 @@ const CalcResDetails = props => {
     
     const [detailData, setDetailData] = useState([])
 
-    // let touchStart = 0
+    let touchX = 0
 
     useEffect(() => {
         
@@ -35,13 +35,17 @@ const CalcResDetails = props => {
     const handleClick = (e, index) => {
         document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${225*index}px - ${1*index}em))`
     }
-
+    
     const handleTouch = e => {
         console.log(e)
         if (e.type === 'touchStart'){
+            return touchX = e.touches[0].clientX 
+            // document.querySelector('.res-detail__list').style.backgroundColor='red'
+        }
+        if (e.changedTouches[0].clientX - touchX < -80){
+            document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${225}px - ${1}em))`
+        }
 
-            document.querySelector('.res-detail__list').style.backgroundColor='red'
-        } 
     }
 
     const detailList = detailData.map((item,index) => 
