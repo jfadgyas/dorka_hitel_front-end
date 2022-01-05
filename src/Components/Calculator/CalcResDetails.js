@@ -33,6 +33,7 @@ const CalcResDetails = props => {
     }, [props])
 
     const handleClick = (e, index) => {
+        console.log(e.target)
         document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${225*index}px - ${1*index}em))`
     }
     
@@ -64,13 +65,10 @@ const CalcResDetails = props => {
     return (
         <div className='res-detail'>
             <h4 className='res-detail__label'>A {props.bank} további ajánlatai</h4>
-            <ul
-                className='res-detail__list'
-                onTouchStart={handleTouch}
-                onTouchEnd={handleTouch}>
+            <ul className='res-detail__list'>
                 {detailList}
             </ul>
-            {detailData.length !== 0 && <div className='res-detail__currentBox'></div>}
+            {detailData.length !== 0 && <div className='res-detail__currentBox' onTouchStart={handleTouch} onTouchEnd={handleTouch}></div>}
             <div className='res-detail__hero-container'>
                 <div>
                     <p>Elakadtál? Ügyintézőnk örömmel segít a választásban!</p>
