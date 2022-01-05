@@ -38,7 +38,7 @@ const CalcResDetails = props => {
     
     const handleTouch = e => {
         console.log(e)
-        if (e.type === 'touchStart'){
+        if (e.type === 'touchstart'){
             return touchX = e.touches[0].clientX 
             // document.querySelector('.res-detail__list').style.backgroundColor='red'
         }
