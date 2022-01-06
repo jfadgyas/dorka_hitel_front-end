@@ -1093,7 +1093,7 @@ body {
   position: absolute;
   left: 17%;
   top: 4.5em;
-  width: 225px;
+  width: 235px;
   height: 175px;
   -webkit-box-shadow: 2px 2px 5px #1768c4;
           box-shadow: 2px 2px 5px #1768c4;
@@ -1116,7 +1116,7 @@ body {
 .res-detail__list-item {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  width: 225px;
+  width: 235px;
   height: 175px;
 }
 

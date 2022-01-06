@@ -331,11 +331,10 @@
         position: absolute;
         left: 17%;
         top: 4.5em;
-        width: 225px;
+        width: 235px;
         height: 175px;
         box-shadow: 2px 2px 5px $activeBorder;
         border-radius: 1em;
-        // z-index: 8;
     }
     &__list{
         display: flex;
@@ -344,14 +343,12 @@
         margin-left: 15%;
         padding: 0.5em;
         list-style: none;
-        // position: relative;
-        // z-index: 9;
         transition: 300ms;
     }
     &__list-item{
         flex-shrink: 0;
         @extend %cardBackground;
-        width: 225px;
+        width: 235px;
         height: 175px;
     }
     &__desc{

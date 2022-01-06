@@ -33,18 +33,18 @@ const CalcResDetails = props => {
     }, [props])
 
     const handleClick = (e, index) => {
-        console.log(e.target)
-        document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${225*index}px - ${1*index}em))`
+        document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${235*index}px - ${1*index}em))`
     }
     
     const handleTouch = e => {
         console.log(e)
         if (e.type === 'touchstart'){
-            document.querySelector('.res-detail__list').style.background='red'
             return touchX = e.touches[0].clientX 
         }
         if (e.changedTouches[0].clientX - touchX < -80){
-            document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${225}px - ${1}em))`
+            const z=e.target.closest('li').id
+            document.querySelector(`#${z}`).style.background='red'
+            document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${235}px - ${1}em))`
         }
 
     }
@@ -52,6 +52,7 @@ const CalcResDetails = props => {
     const detailList = detailData.map((item,index) => 
         <li
             key={index}
+            id={index}
             className='res-detail__list-item'
             onClick={(e) => handleClick(e,index)}>
             <p className='res-detail__desc'>{item.bank} <strong>{item.product}</strong></p>
@@ -68,7 +69,7 @@ const CalcResDetails = props => {
             <ul className='res-detail__list'>
                 {detailList}
             </ul>
-            {detailData.length !== 0 && <div className='res-detail__currentBox' onTouchStart={handleTouch} onTouchEnd={handleTouch}></div>}
+            {detailData.length !== 0 && <div className='res-detail__currentBox' onTouchStart={handleTouch} onTouchMove={e => e.preventDefault()} onTouchEnd={handleTouch}></div>}
             <div className='res-detail__hero-container'>
                 <div>
                     <p>Elakadtál? Ügyintézőnk örömmel segít a választásban!</p>
