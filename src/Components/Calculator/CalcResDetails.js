@@ -32,18 +32,20 @@ const CalcResDetails = props => {
         
     }, [props])
 
-    const handleClick = (e, index) => {
+    const handleClick = index => {
         document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${235*index}px - ${1*index}em))`
     }
     
     const handleTouch = e => {
         if (e.type === 'touchstart'){
-            const z=e.target.closest('li').id
-            document.querySelector(`#${z}`).style.background='red'
+            const z=document.querySelector('res-detail__label')
+            z.innerText=e.touches[0].clientX 
             return touchX = e.touches[0].clientX 
         }
         if (e.changedTouches[0].clientX - touchX < -30){
             document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${235}px - ${1}em))`
+            const z=document.querySelector('res-detail__label')
+            z.innerText=e.changedTouches[0].clientX 
         }
 
     }
@@ -53,7 +55,7 @@ const CalcResDetails = props => {
             key={index}
             id={`d${index}`}
             className='res-detail__list-item'
-            onClick={(e) => handleClick(e,index)}>
+            onClick={() => handleClick(index)}>
             <p className='res-detail__desc'>{item.bank} <strong>{item.product}</strong></p>
             <p className='res-detail__desc'>Futamidő: <strong>{item.year} év</strong></p>
             {item.ratePeriod && <p className='res-detail__desc'>Fix kamatozás: <strong>{item.ratePeriod === 30 ? 'végig' : `${item.ratePeriod} év`}</strong></p>}
