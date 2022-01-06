@@ -37,13 +37,12 @@ const CalcResDetails = props => {
     }
     
     const handleTouch = e => {
-        console.log(e)
         if (e.type === 'touchstart'){
             const z=e.target.closest('li').id
-            document.querySelector(`#d${z}`).style.background='red'
+            document.querySelector(`#${z}`).style.background='red'
             return touchX = e.touches[0].clientX 
         }
-        if (e.changedTouches[0].clientX - touchX < -80){
+        if (e.changedTouches[0].clientX - touchX < -30){
             document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${235}px - ${1}em))`
         }
 
