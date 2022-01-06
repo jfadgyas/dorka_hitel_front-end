@@ -43,7 +43,7 @@ const CalcResDetails = props => {
         }
         if (e.changedTouches[0].clientX - touchX < -80){
             const z=e.target.closest('li').id
-            document.querySelector(`#${z}`).style.background='red'
+            document.querySelector(`#d${z}`).style.background='red'
             document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${235}px - ${1}em))`
         }
 
@@ -52,7 +52,7 @@ const CalcResDetails = props => {
     const detailList = detailData.map((item,index) => 
         <li
             key={index}
-            id={index}
+            id={`d${index}`}
             className='res-detail__list-item'
             onClick={(e) => handleClick(e,index)}>
             <p className='res-detail__desc'>{item.bank} <strong>{item.product}</strong></p>
