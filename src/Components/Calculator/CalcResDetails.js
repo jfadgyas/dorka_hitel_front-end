@@ -37,8 +37,9 @@ const CalcResDetails = props => {
     }
     
     const handleTouch = e => {
+        // console.log(e.type)
         if (e.type === 'touchstart'){
-            const z=document.querySelector('res-detail__label')
+            const z=document.querySelector('.res-detail__label')
             z.innerText=e.touches[0].clientX 
             return touchX = e.touches[0].clientX 
         }
@@ -47,7 +48,6 @@ const CalcResDetails = props => {
             const z=document.querySelector('res-detail__label')
             z.innerText=e.changedTouches[0].clientX 
         }
-
     }
 
     const detailList = detailData.map((item,index) => 
@@ -70,7 +70,7 @@ const CalcResDetails = props => {
             <ul className='res-detail__list'>
                 {detailList}
             </ul>
-            {detailData.length !== 0 && <div className='res-detail__currentBox' onTouchStart={handleTouch} onTouchEnd={handleTouch}></div>}
+            {detailData.length !== 0 && <div className='res-detail__currentBox' onClick={handleTouch}></div>}
             <div className='res-detail__hero-container'>
                 <div>
                     <p>Elakadtál? Ügyintézőnk örömmel segít a választásban!</p>
