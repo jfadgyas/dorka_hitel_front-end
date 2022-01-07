@@ -32,30 +32,23 @@ const CalcResDetails = props => {
         
     }, [props])
 
-    const handleClick = index => {
+    const moveList = (index, element) => {
+        if (index < 0 || index === detailList.length) return
         document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${235*index}px - ${1*index}em))`
+        element.dataset.index = index
     }
     
     const handleTouch = e => {
-        // console.log(e.type)
-        if (e.type === 'touchstart'){
-            const z=document.querySelector('.res-detail__label')
-            z.innerText=e.touches[0].clientX 
-            return touchX = e.touches[0].clientX 
-        }
-        if (e.changedTouches[0].clientX - touchX < -30){
-            document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${235}px - ${1}em))`
-            const z=document.querySelector('res-detail__label')
-            z.innerText=`${touchX}, end: e.changedTouches[0].clientX` 
-        }
+        if (e.type === 'touchstart') return touchX = e.touches[0].clientX
+        e.changedTouches[0].clientX - touchX > 30 ? moveList(+e.target.dataset.index+1, e.target) : moveList(+e.target.dataset.index-1, e.target)
+        // e.target.dataset = moveList ???
     }
 
     const detailList = detailData.map((item,index) => 
         <li
             key={index}
-            id={`d${index}`}
             className='res-detail__list-item'
-            onClick={() => handleClick(index)}>
+            onClick={() => moveList(index)}>
             <p className='res-detail__desc'>{item.bank} <strong>{item.product}</strong></p>
             <p className='res-detail__desc'>Futamidő: <strong>{item.year} év</strong></p>
             {item.ratePeriod && <p className='res-detail__desc'>Fix kamatozás: <strong>{item.ratePeriod === 30 ? 'végig' : `${item.ratePeriod} év`}</strong></p>}
@@ -70,7 +63,7 @@ const CalcResDetails = props => {
             <ul className='res-detail__list'>
                 {detailList}
             </ul>
-            {detailData.length !== 0 && <div className='res-detail__currentBox' onTouchStart={handleTouch} onTouchEnd={handleTouch}></div>}
+            {detailData.length !== 0 && <div className='res-detail__currentBox' data-index='0' onTouchStart={handleTouch} onClick={handleTouch} onTouchEnd={handleTouch}></div>}
             <div className='res-detail__hero-container'>
                 <div>
                     <p>Elakadtál? Ügyintézőnk örömmel segít a választásban!</p>
