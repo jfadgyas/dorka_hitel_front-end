@@ -32,16 +32,16 @@ const CalcResDetails = props => {
         
     }, [props])
 
-    const moveList = (index, element) => {
+    const moveList = index => {
         if (index < 0 || index === detailList.length) return
         document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${235*index}px - ${1*index}em))`
-        element.dataset.index = index
+        return index
     }
     
     const handleTouch = e => {
         if (e.type === 'touchstart') return touchX = e.touches[0].clientX
-        e.changedTouches[0].clientX - touchX > 30 ? moveList(+e.target.dataset.index+1, e.target) : moveList(+e.target.dataset.index-1, e.target)
-        // e.target.dataset = moveList ???
+        touchX - e.changedTouches[0].clientX < -30 ? moveList(+e.target.dataset.index+1, e.target) : moveList(+e.target.dataset.index-1, e.target)
+        e.target.dataset = touchX - e.changedTouches[0].clientX < -30 ? moveList(+e.target.dataset.index+1, e.target) : moveList(+e.target.dataset.index-1, e.target)
     }
 
     const detailList = detailData.map((item,index) => 
