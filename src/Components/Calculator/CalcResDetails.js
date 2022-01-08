@@ -40,8 +40,8 @@ const CalcResDetails = props => {
     
     const handleTouch = e => {
         if (e.type === 'touchstart') return touchX = e.touches[0].clientX
-        touchX - e.changedTouches[0].clientX < -30 ? moveList(+e.target.dataset.index+1, e.target) : moveList(+e.target.dataset.index-1, e.target)
-        e.target.dataset = touchX - e.changedTouches[0].clientX < -30 ? moveList(+e.target.dataset.index+1, e.target) : moveList(+e.target.dataset.index-1, e.target)
+        // touchX - e.changedTouches[0].clientX < -30 ? moveList(+e.target.dataset.index+1, e.target) : moveList(+e.target.dataset.index-1, e.target)
+        e.target.dataset.index = touchX - e.changedTouches[0].clientX > 30 ? moveList(+e.target.dataset.index+1, e.target) : moveList(+e.target.dataset.index-1, e.target)
     }
 
     const detailList = detailData.map((item,index) => 
