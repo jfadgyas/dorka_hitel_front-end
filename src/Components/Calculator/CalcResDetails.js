@@ -6,7 +6,8 @@ const CalcResDetails = props => {
     const [detailData, setDetailData] = useState([])
 
     let touchX = 0
-
+    let selected = 0
+    
     useEffect(() => {
         
         const postDetails = async () => {
@@ -33,15 +34,20 @@ const CalcResDetails = props => {
     }, [props])
 
     const moveList = index => {
-        if (index < 0 || index === detailList.length) return
         document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${235*index}px - ${1*index}em))`
-        return index
+        selected = index
     }
     
     const handleTouch = e => {
         if (e.type === 'touchstart') return touchX = e.touches[0].clientX
-        // touchX - e.changedTouches[0].clientX < -30 ? moveList(+e.target.dataset.index+1, e.target) : moveList(+e.target.dataset.index-1, e.target)
-        e.target.dataset.index = touchX - e.changedTouches[0].clientX > 30 ? moveList(+e.target.dataset.index+1, e.target) : moveList(+e.target.dataset.index-1, e.target)
+        if (touchX - e.changedTouches[0].clientX > 30 && selected !== detailList.length-1) moveList(selected+1)
+        if (touchX - e.changedTouches[0].clientX < -30 && selected !== 0) moveList(selected-1)
+    }
+
+    const handleMouse = e => {
+        if (e.type === 'mousedown') return touchX = e.pageX
+        if (touchX - e.pageX > 30 && selected !== detailList.length-1) moveList(selected+1)
+        if (touchX - e.pageX < -30 && selected !== 0) moveList(selected-1)
     }
 
     const detailList = detailData.map((item,index) => 
@@ -63,7 +69,13 @@ const CalcResDetails = props => {
             <ul className='res-detail__list'>
                 {detailList}
             </ul>
-            {detailData.length !== 0 && <div className='res-detail__currentBox' data-index='0' onTouchStart={handleTouch} onClick={handleTouch} onTouchEnd={handleTouch}></div>}
+            {detailData.length !== 0 && <div className='res-detail__currentBox'
+                data-index='0'
+                onTouchStart={handleTouch}
+                onTouchEnd={handleTouch}
+                onMouseDown={handleMouse}
+                onMouseUp={handleMouse}></div>
+            }
             <div className='res-detail__hero-container'>
                 <div>
                     <p>Elakadtál? Ügyintézőnk örömmel segít a választásban!</p>
