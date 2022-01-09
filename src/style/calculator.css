@@ -1091,13 +1091,14 @@ body {
 
 .res-detail__currentBox {
   position: absolute;
-  left: 17%;
+  left: calc(15% + 0.5em);
   top: 4.5em;
   width: 235px;
   height: 175px;
   -webkit-box-shadow: 2px 2px 5px #1768c4;
           box-shadow: 2px 2px 5px #1768c4;
   border-radius: 1em;
+  overflow: hidden;
 }
 
 .res-detail__list {

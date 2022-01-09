@@ -329,12 +329,13 @@
     }
     &__currentBox{
         position: absolute;
-        left: 17%;
+        left: calc(15% + 0.5em); // position of the list 15% margin, 0.5em padding
         top: 4.5em;
         width: 235px;
         height: 175px;
         box-shadow: 2px 2px 5px $activeBorder;
         border-radius: 1em;
+        overflow: hidden; //for disable h-scroll on element???
     }
     &__list{
         display: flex;

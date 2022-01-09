@@ -3,13 +3,15 @@ import hero from '../../foto/hero.png'
 
 const CalcResDetails = props => {
     
+    // State: records of the requested details
     const [detailData, setDetailData] = useState([])
 
+    // Variables
     let touchX = 0
-    let selected = 0
+    let selected = 0 // holds the index of the current detail from the list
     
     useEffect(() => {
-        
+        // Get data from the server using loantype and bank
         const postDetails = async () => {
             const URL = `https://infallible-elion-34e0db.netlify.app/${props.loanRequest.loanType}/${props.bank}`
             const options = {
@@ -33,23 +35,27 @@ const CalcResDetails = props => {
         
     }, [props])
 
+    // Scroll the list horizontally
     const moveList = index => {
         document.querySelector('.res-detail__list').style.transform=`translateX(calc(-${235*index}px - ${1*index}em))`
         selected = index
     }
     
+    // Swipe with touch, same with mouse, maybe join them together?
     const handleTouch = e => {
         if (e.type === 'touchstart') return touchX = e.touches[0].clientX
         if (touchX - e.changedTouches[0].clientX > 30 && selected !== detailList.length-1) moveList(selected+1)
         if (touchX - e.changedTouches[0].clientX < -30 && selected !== 0) moveList(selected-1)
     }
 
+    // Swipe with mouse
     const handleMouse = e => {
         if (e.type === 'mousedown') return touchX = e.pageX
         if (touchX - e.pageX > 30 && selected !== detailList.length-1) moveList(selected+1)
         if (touchX - e.pageX < -30 && selected !== 0) moveList(selected-1)
     }
 
+    // Generate details list
     const detailList = detailData.map((item,index) => 
         <li
             key={index}
@@ -70,7 +76,6 @@ const CalcResDetails = props => {
                 {detailList}
             </ul>
             {detailData.length !== 0 && <div className='res-detail__currentBox'
-                data-index='0'
                 onTouchStart={handleTouch}
                 onTouchEnd={handleTouch}
                 onMouseDown={handleMouse}
