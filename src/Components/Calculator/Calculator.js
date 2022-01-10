@@ -73,7 +73,7 @@ const Calc = (props) => {
             id: 'salary',
             name: 'salary',
             type: 'tel',
-            placeholder: 'fizetes',
+            placeholder: 'pl. 225 000',
             min: 0,
             max: 999999999,
             required: true
@@ -89,7 +89,7 @@ const Calc = (props) => {
             id: 'loan',
             name: 'loan',
             type: 'tel',
-            placeholder: 'hitel',
+            placeholder: 'pl. 6 000 000',
             min: loanRequest.loanType ? loanConditions.find(item => item.loanType === loanRequest.loanType).minLoan : 0,
             max: loanRequest.loanType ? loanConditions.find(item => item.loanType === loanRequest.loanType).maxLoan : 999999999,
             required: true
@@ -105,7 +105,7 @@ const Calc = (props) => {
             id: 'year',
             name: 'year',
             type: 'tel',
-            placeholder: 'futamido',
+            placeholder: 'pl. 4',
             min: loanRequest.loanType ? loanConditions.find(item => item.loanType === loanRequest.loanType).minYear : 0,
             max: loanRequest.loanType ? loanConditions.find(item => item.loanType === loanRequest.loanType).maxYear : 99,
             required: true

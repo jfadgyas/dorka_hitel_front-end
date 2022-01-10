@@ -25,8 +25,7 @@ const Footer = () => {
     return (
         <footer className='footer'>
             {footerLinks}
-            <p>Copyright ?? ez nem latszik ??</p>
-            <p>Blabla</p>
+            <p className='footer__copyright'>Created By JCube webdevelopment</p>
         </footer>
     )
 }
