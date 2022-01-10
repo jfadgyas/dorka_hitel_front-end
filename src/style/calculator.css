@@ -1105,6 +1105,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  float: left;
   gap: 1em;
   margin: 0;
   margin-left: 15%;
@@ -1127,6 +1128,7 @@ body {
 }
 
 .res-detail__hero-container {
+  clear: both;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

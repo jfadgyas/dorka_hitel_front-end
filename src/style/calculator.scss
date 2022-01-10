@@ -339,6 +339,7 @@
     }
     &__list{
         display: flex;
+        float: left;
         gap: 1em;
         margin: 0;
         margin-left: 15%;
@@ -357,6 +358,7 @@
         padding: 0.5em;
     }
     &__hero-container{
+        clear: both;
         display: flex;
         justify-content: space-around;
         align-items: center;
