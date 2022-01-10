@@ -32,7 +32,7 @@ const Contact = () => {
             name: 'firstName',
             type: 'text',
             required: true,
-            placeholder: '',
+            placeholder: ' ',
             pattern: /[\w\s]+/,
             autoComplete: 'name'
         },
@@ -44,7 +44,7 @@ const Contact = () => {
             name: 'phone',
             type: 'tel',
             required: true,
-            placeholder: '',
+            placeholder: ' ',
             pattern: /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
             autoComplete: 'phone'
         },
@@ -56,7 +56,7 @@ const Contact = () => {
             name: 'email',
             type: 'email',
             required: true,
-            placeholder: '',
+            placeholder: ' ',
             pattern: /^((?!\.)[-\w_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/,
             autoComplete: 'email'
         },
