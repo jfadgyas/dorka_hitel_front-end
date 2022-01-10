@@ -1,4 +1,4 @@
 [[redirects]]
-    from = "/rolunk"
-    to = "/rolunk"
+    from = "/*"
+    to = "/./:splat"
     status = 200
