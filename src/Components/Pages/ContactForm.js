@@ -15,7 +15,7 @@ const ContactForm = props => {
                     required={item.required}
                     placeholder={item.placeholder}
                     pattern={item.pattern.toString().replaceAll('/', '')}
-                    autoComplete={item.autoComplete}
+                    // autoComplete={item.autoComplete}
                     value={props.messageDetails[item.name]}
                     ref={ref => props.inputRef.current[index] = ref}
                     onChange={props.handleKey}
