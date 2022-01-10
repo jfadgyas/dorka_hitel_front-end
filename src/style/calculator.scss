@@ -325,7 +325,7 @@
     position: relative;
     overflow: hidden;
     &__label{
-        font-size: 1em;
+        font-size: 0.5em;//1em;
         text-align: center;
     }
     &__currentBox{
@@ -336,7 +336,6 @@
         height: 175px;
         box-shadow: 2px 2px 5px $activeBorder;
         border-radius: 1em;
-        overflow: hidden; //for disable h-scroll on element???
     }
     &__list{
         display: flex;
