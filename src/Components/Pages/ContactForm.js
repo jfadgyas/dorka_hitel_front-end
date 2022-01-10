@@ -13,7 +13,7 @@ const ContactForm = props => {
                     name={item.name}
                     className={item.className}
                     required={item.required}
-                    placeholder={item.placeholder}
+                    // placeholder={item.placeholder}
                     pattern={item.pattern.toString().replaceAll('/', '')}
                     autoComplete={item.autoComplete}
                     value={props.messageDetails[item.name]}
