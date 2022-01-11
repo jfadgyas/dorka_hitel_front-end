@@ -77,7 +77,7 @@ const CalcResDetails = props => {
             </ul>
             {detailData.length !== 0 && <div className='res-detail__currentBox'
                 onTouchStart={handleTouch}
-                onTouchMove={e => e.preventDefault()}
+                onTouchMove={e.preventDefault()}
                 onTouchEnd={handleTouch}
                 onMouseDown={handleMouse}
                 onMouseUp={handleMouse}></div>
