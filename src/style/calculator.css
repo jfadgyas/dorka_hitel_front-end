@@ -1369,4 +1369,32 @@ body {
 .res-detail__icon--person::before {
   content: '\e55a';
 }
+
+@media screen and (min-width: 1024px) {
+  .calc__req__form {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin: 0 auto;
+  }
+  .calc__req__form__btn {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    grid-column: 1 / 5;
+    margin: 1em auto;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .res-detail__label {
+    font-size: 1em;
+  }
+}
 /*# sourceMappingURL=calculator.css.map */

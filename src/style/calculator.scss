@@ -16,7 +16,7 @@
     align-items: center;
     &__groups{
         @extend %form-group;
-        margin: 0; // ha ugralos kell akkor marad a margin
+        margin: 0;
     }
     &__labels{
         @extend %label;
@@ -321,6 +321,7 @@
     }
 }
 
+// Styling details of the results
 .res-detail{
     position: relative;
     overflow: hidden;
@@ -392,5 +393,26 @@
     &__icon{
         @include icons(1.5em, $activeColor);
         padding: 0.1em;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .calc__req__form{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: flex-start;
+        margin: 0 auto;
+        &__btn{
+            justify-content: center;
+            grid-column: 1 / 5;
+            margin: 1em auto;
+        }
+    }
+}
+
+// ios landscape
+@media screen and (orientation: landscape){
+    .res-detail__label{
+        font-size: 1em;
     }
 }
