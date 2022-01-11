@@ -1086,7 +1086,6 @@ body {
 }
 
 .res-detail__label {
-  font-size: 13px;
   text-align: center;
 }
 
@@ -1099,6 +1098,8 @@ body {
   -webkit-box-shadow: 2px 2px 5px #1768c4;
           box-shadow: 2px 2px 5px #1768c4;
   border-radius: 1em;
+  -ms-touch-action: none;
+      touch-action: none;
 }
 
 .res-detail__list {

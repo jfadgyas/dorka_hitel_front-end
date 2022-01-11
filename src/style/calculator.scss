@@ -326,7 +326,6 @@
     position: relative;
     overflow: hidden;
     &__label{
-        font-size: 13px;//1em;
         text-align: center;
     }
     &__currentBox{
@@ -337,6 +336,7 @@
         height: 175px;
         box-shadow: 2px 2px 5px $activeBorder;
         border-radius: 1em;
+        touch-action: none; //disable scrolling on this element
     }
     &__list{
         display: flex;
