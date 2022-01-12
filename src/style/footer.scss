@@ -25,3 +25,16 @@
         font-size: 11px;
     }
 }
+
+// Media queries
+// ipad old
+// portrait
+@media only screen
+    and (min-width: 768px)
+    and (max-width: 1024px)
+    and (resolution: 2dppx)
+    and (-webkit-device-pixel-ratio: 2){
+        .footer{
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }

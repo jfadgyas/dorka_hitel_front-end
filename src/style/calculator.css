@@ -1371,6 +1371,27 @@ body {
   content: '\e55a';
 }
 
+@media screen and (orientation: landscape) {
+  .res-detail__label {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (resolution: 2dppx) and (-webkit-device-pixel-ratio: 2) {
+  .calc__req__form {
+    width: 80%;
+  }
+  .calc__req__form__groups {
+    padding: 0.5em 1.5em;
+  }
+  .calc__res-list__item {
+    width: 80%;
+  }
+  .filter__groups {
+    margin: 0.5em 5em;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .calc__req__form {
     display: -ms-grid;
@@ -1390,12 +1411,6 @@ body {
     -ms-grid-column-span: 4;
     grid-column: 1 / 5;
     margin: 1em auto;
-  }
-}
-
-@media screen and (orientation: landscape) {
-  .res-detail__label {
-    font-size: 1em;
   }
 }
 /*# sourceMappingURL=calculator.css.map */

@@ -396,6 +396,39 @@
     }
 }
 
+// Media queries
+// Ios landscape
+@media screen and (orientation: landscape){
+    .res-detail__label{
+        font-size: 1em;
+    }
+}
+
+// ipad old
+// portrait
+@media only screen
+    and (min-width: 768px)
+    and (max-width: 1024px)
+    and (resolution: 2dppx)
+    and (-webkit-device-pixel-ratio: 2){
+        // body{
+        //     background: #add8e6;
+        // }
+        .calc__req__form{
+            width: 80%;
+            &__groups{
+                padding: 0.5em 1.5em;
+            }
+        }
+        .calc__res-list__item{
+            width: 80%;
+        }
+        .filter__groups{
+            margin: 0.5em 5em;
+        }
+    }
+
+// Desktop big screen
 @media screen and (min-width: 1024px){
     .calc__req__form{
         display: grid;
@@ -410,9 +443,3 @@
     }
 }
 
-// ios landscape
-@media screen and (orientation: landscape){
-    .res-detail__label{
-        font-size: 1em;
-    }
-}

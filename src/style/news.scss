@@ -34,3 +34,23 @@
         padding: 0.2em;
     }
 }
+
+// Media queries
+// ipad old
+// portrait
+@media only screen
+    and (min-width: 768px)
+    and (max-width: 1024px)
+    and (resolution: 2dppx)
+    and (-webkit-device-pixel-ratio: 2){
+        .news{
+            &__item{
+                width: 80%;
+            }
+            &__desc,
+            &__label,
+            &__date{
+                padding: 0 1.5em;
+            }
+        }
+    }

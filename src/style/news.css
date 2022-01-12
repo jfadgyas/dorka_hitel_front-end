@@ -275,4 +275,13 @@ body {
 .news__icon--person::before {
   content: '\e55a';
 }
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (resolution: 2dppx) and (-webkit-device-pixel-ratio: 2) {
+  .news__item {
+    width: 80%;
+  }
+  .news__desc, .news__label, .news__date {
+    padding: 0 1.5em;
+  }
+}
 /*# sourceMappingURL=news.css.map */
