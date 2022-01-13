@@ -66,7 +66,7 @@ const Filter = props => {
                 </div>
                 {props.resultForFilters.data[0].ratePeriod &&
                     <div className='filter__groups'>
-                        <h3 className='filter__title'>Csak ezeket a bankokat mutassa:</h3>
+                        <h3 className='filter__title'>Kamatozás:</h3>
                         <ul className='filter__list'>
                             {createFilters('ratePeriod')}
                         </ul>

@@ -27,14 +27,12 @@
 }
 
 // Media queries
-// ipad old
-// portrait
+// Mobile devices
 @media only screen
     and (min-width: 768px)
-    and (max-width: 1024px)
-    and (resolution: 2dppx)
-    and (-webkit-device-pixel-ratio: 2){
+    and (min-resolution: 2dppx){
         .footer{
             grid-template-columns: repeat(4, 1fr);
+            gap: 1em;
         }
     }

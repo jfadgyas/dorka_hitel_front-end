@@ -255,7 +255,7 @@ body {
   font-size: 1.1em;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) and (resolution: 2dppx) and (-webkit-device-pixel-ratio: 2) {
+@media only screen and (min-width: 768px) {
   .tiles {
     -ms-grid-columns: (1fr)[4];
         grid-template-columns: repeat(4, 1fr);

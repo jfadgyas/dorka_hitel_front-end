@@ -42,13 +42,9 @@
 }
 
 // Media queries
-// ipad old
-// portrait
+// Any wide screen, phone landscape, tablet, desktop 
 @media only screen
-    and (min-width: 768px)
-    and (max-width: 1024px)
-    and (resolution: 2dppx)
-    and (-webkit-device-pixel-ratio: 2){
+    and (min-width: 768px){
         .tiles{
             grid-template-columns: repeat(4, 1fr); 
         }
