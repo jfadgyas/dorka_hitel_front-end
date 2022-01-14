@@ -7,9 +7,15 @@ const Filter = props => {
     
     // Calculate total filter height for animation
     useEffect(() => {
-        const filterGroups = Array.from(document.querySelectorAll('.filter__groups'))
-        const filterHeight = filterGroups.reduce((total, item) => total = total + item.scrollHeight, 0)
-        document.documentElement.style.setProperty('--filterHeight', `${filterHeight}px`)
+        function resize(){
+            document.documentElement.style.setProperty('--filterHeight', `0px`)
+            const filterGroups = Array.from(document.querySelectorAll('.filter__groups'))
+            const filterHeight = window.innerWidth >= 1200 ? filterGroups.reduce((max, item) => Math.max(max, item.scrollHeight), 0) : filterGroups.reduce((total, item) => total = total + item.scrollHeight, 0)
+            document.documentElement.style.setProperty('--filterHeight', `${filterHeight}px`)
+        }
+        resize()
+        window.addEventListener('resize', resize)
+        return () => window.removeEventListener('resize', resize)
     })
 
     // Create the filters

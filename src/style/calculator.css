@@ -1441,16 +1441,25 @@ body {
 }
 
 @media only screen and (min-width: 1200px) and (resolution: 1dppx) {
-  body {
-    background: pink;
-  }
   .filter__wrapper {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 2em;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .filter__groups {
+    height: calc(var(--filterHeight) - 1.6em);
   }
   .filter__list {
+    height: calc(var(--filterHeight) - 1.6em);
     border: none;
     border-right: 1px solid rgba(49, 153, 201, 0.459);
   }
